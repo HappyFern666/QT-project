@@ -13,8 +13,18 @@ private:
     int Tag;
     std::string Content;
 public:
-    std::string setSchedule();
+    std::string & setSchedule();
     bool doneSchedule();
+};
+
+class User {
+private:
+    std::string Id;
+    Schedule* Tasks[50];
+    std::string Password;
+public:
+    std::string & setId();
+    std::string & setPassword();
 };
 
 int main(int argc, char *argv[])
