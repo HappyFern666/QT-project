@@ -1,10 +1,11 @@
 # ninja log v5
-11	254	7379138134926027	qt_proj_autogen/timestamp	705bd4e3e72dada9
-11	254	7379138134926027	D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/qt_proj_autogen/mocs_compilation.cpp	705bd4e3e72dada9
-279	3405	7379138166395716	CMakeFiles/qt_proj.dir/mainwindow.cpp.obj	2a6d71be756f3f92
-11	254	7379138134926027	qt_proj_autogen/mocs_compilation.cpp	705bd4e3e72dada9
-11	254	7379138134926027	D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/qt_proj_autogen/timestamp	705bd4e3e72dada9
-1016	3793	7379133286986174	CMakeFiles/qt_proj.dir/qt_proj_autogen/mocs_compilation.cpp.obj	173af8d61fdd9c68
-251	3362	7379136138539209	CMakeFiles/qt_proj.dir/main.cpp.obj	48c52ce2698ea49e
-303	3169	7379138163941567	CMakeFiles/qt_proj.dir/currentday_schedule.cpp.obj	f91720402d6809cc
-3406	3700	7379138169210303	qt_proj.exe	c08c74d369c01312
+280	8172	7379818162293049	CMakeFiles/qt_proj.dir/mainwindow.cpp.obj	93f414ea35861c51
+12	243	7379818083139914	D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/qt_proj_autogen/mocs_compilation.cpp	705bd4e3e72dada9
+12	243	7379818083139914	qt_proj_autogen/timestamp	705bd4e3e72dada9
+12	243	7379818083139914	qt_proj_autogen/mocs_compilation.cpp	705bd4e3e72dada9
+12	243	7379818083139914	D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/qt_proj_autogen/timestamp	705bd4e3e72dada9
+1078	5034	7379813171167843	CMakeFiles/qt_proj.dir/qt_proj_autogen/mocs_compilation.cpp.obj	3c2a7d294e9cc431
+265	3070	7379818111401584	CMakeFiles/qt_proj.dir/currentday_schedule.cpp.obj	8cad25c69e2e82c7
+999	10010	7379813220930282	CMakeFiles/qt_proj.dir/main.cpp.obj	170092dd0653f470
+8172	8531	7379818165846041	qt_proj.exe	64d42d274dd82194
+5	910	7379819407562553	build.ninja	56661fcd8e528c04

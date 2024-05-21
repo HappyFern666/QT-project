@@ -258,6 +258,37 @@ qt_proj_autogen/timestamp: \
   C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets-relwithdebinfo.cmake \
   C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsTargets.cmake \
   C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6GuiTools/Qt6GuiToolsVersionlessTargets.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLAdditionalTargetInfo.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLConfig.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLConfigVersion.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLConfigVersionImpl.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLDependencies.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLTargets-relwithdebinfo.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLTargets.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGL/Qt6OpenGLVersionlessTargets.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsAdditionalTargetInfo.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsConfig.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsConfigVersion.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsConfigVersionImpl.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsDependencies.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsTargets-relwithdebinfo.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsTargets.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6OpenGLWidgets/Qt6OpenGLWidgetsVersionlessTargets.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiPlugin/Qt6UiPluginAdditionalTargetInfo.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiPlugin/Qt6UiPluginConfig.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiPlugin/Qt6UiPluginConfigVersion.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiPlugin/Qt6UiPluginConfigVersionImpl.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiPlugin/Qt6UiPluginDependencies.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiPlugin/Qt6UiPluginTargets.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiPlugin/Qt6UiPluginVersionlessTargets.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiTools/Qt6UiToolsAdditionalTargetInfo.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiTools/Qt6UiToolsConfig.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiTools/Qt6UiToolsConfigVersion.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiTools/Qt6UiToolsConfigVersionImpl.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiTools/Qt6UiToolsDependencies.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiTools/Qt6UiToolsTargets-relwithdebinfo.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiTools/Qt6UiToolsTargets.cmake \
+  C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6UiTools/Qt6UiToolsVersionlessTargets.cmake \
   C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginAdditionalTargetInfo.cmake \
   C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginConfig.cmake \
   C:/Qt/6.7.0/mingw_64/lib/cmake/Qt6Widgets/Qt6QModernWindowsStylePluginTargets-relwithdebinfo.cmake \
@@ -520,6 +551,7 @@ qt_proj_autogen/timestamp: \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   D:/code/csh/qt/QT-project/qt_proj/CMakeLists.txt \
   D:/code/csh/qt/QT-project/qt_proj/Schedule.h \
+  D:/code/csh/qt/QT-project/qt_proj/User.h \
   .qtc/package-manager/auto-setup.cmake \
   CMakeFiles/3.27.7/CMakeCXXCompiler.cmake \
   CMakeFiles/3.27.7/CMakeRCCompiler.cmake \

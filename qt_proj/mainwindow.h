@@ -18,7 +18,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_Add_new_schedule_clicked();
+
+
+    void on_Add_Schedule_clicked();
 
 private:
     Ui::MainWindow *ui;

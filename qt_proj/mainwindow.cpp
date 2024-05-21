@@ -1,19 +1,15 @@
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
 #include "Schedule.h"
-#include <QDialog>
-#include <QLineEdit>
-#include <QGroupBox>
-#include <QHBoxLayout>
-#include <QRadioButton>
-#include <QButtonGroup>
+#include <QtWidgets>
+#include <QtUiTools/QUiLoader>
+#include <QFile>
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-    connect(ui->Add_new_schedule, &QPushButton::clicked, this, &MainWindow::on_Add_new_schedule_clicked);
 }
 
 MainWindow::~MainWindow()
@@ -21,53 +17,35 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_Add_new_schedule_clicked()
+
+void MainWindow::on_Add_Schedule_clicked()
 {
-    QDialog *dialog = new QDialog(this);
-    dialog->show();
-    //输入任务名称
-    QLineEdit *inputTaskName = new QLineEdit(dialog);
-
-    QGroupBox * groupBox = new QGroupBox(tr("Tag: "),dialog);
-    QHBoxLayout * layout_cat = new QHBoxLayout(dialog);
-
-    QRadioButton *radioButton1 = new QRadioButton("study");
-    layout_cat->addWidget(radioButton1);
-    QRadioButton *radioButton2 = new QRadioButton("workout");
-    layout_cat->addWidget(radioButton2);
-    QRadioButton *radioButton3 = new QRadioButton("shopping");
-    layout_cat->addWidget(radioButton3);
-
-    QButtonGroup *buttonGroup = new QButtonGroup(dialog);
-    buttonGroup->addButton(radioButton1);
-    buttonGroup->addButton(radioButton2);
-    buttonGroup->addButton(radioButton3);
-
-    radioButton1->setChecked(true);
-    groupBox->setLayout(layout_cat);
-
-    QVBoxLayout *dialogLayout = new QVBoxLayout(dialog);
-    dialogLayout->addWidget(inputTaskName);
-    dialogLayout->addWidget(groupBox);
-    dialog->setLayout(dialogLayout);
-
-    QPushButton *okButton = new QPushButton("OK", dialog);
-    connect(okButton, &QPushButton::clicked, dialog, &QDialog::accept);  // 连接点击事件到对话框的 accept 槽函数
-    dialogLayout->addWidget(okButton);
-
-    int result = dialog->exec();
-    if (result == QDialog::Accepted) {
-
-        QString taskName = inputTaskName->text();
-        QString tagName;
-        QAbstractButton *checkedButton = buttonGroup->checkedButton();
-        if (checkedButton) {
-            tagName = checkedButton->text();
-            // 在这里进行任务处理或者其他操作
-            // 其他处理...
-        }
-        Schedule* newschedule = new Schedule(taskName, tagName);
+    QString uiFilePath = QDir::currentPath() + "/Add_Schedule.ui";
+    QUiLoader loader;
+    QFile file(uiFilePath);
+    if (!file.open(QFile::ReadOnly)) {
+        qDebug() << "Failed to open UI file";
+        return;
     }
-    dialog->close();
+    file.open(QFile::ReadOnly);
+    QWidget * widget = loader.load(&file, this);
+    file.close();
+
+    QDialog *dialog = qobject_cast<QDialog*>(widget);
+    if (!dialog) {
+        qDebug() << "Failed to cast widget to QDialog";
+        return;
+    }
+
+    // Find the QLineEdit widget for text input
+    QLineEdit *lineEdit = dialog->findChild<QLineEdit*>("Enter_Task_Name");
+    if (lineEdit) {
+        // Get the text inputted by the user
+        lineEdit->setPlaceholderText("Enter text here");
+        QString userInput = lineEdit->text();
+        qDebug() << "User input: " << userInput;
+    }
+
+
 }
 
