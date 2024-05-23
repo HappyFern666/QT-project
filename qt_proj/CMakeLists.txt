@@ -22,13 +22,16 @@ set(PROJECT_SOURCES
 
     Schedule.h
     User.h
-    Add_Schedule.ui
+
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
     qt_add_executable(qt_proj
         MANUAL_FINALIZATION
         ${PROJECT_SOURCES}
+        add_schedule.h add_schedule.cpp add_schedule.ui
+        User.cpp
+
     )
 else()
     if(ANDROID)

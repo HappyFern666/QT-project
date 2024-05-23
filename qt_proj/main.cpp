@@ -2,16 +2,14 @@
 #include "Schedule.h"
 #include "User.h"
 #include <QtWidgets>
+#include <list>
 
 
 int main(int argc, char *argv[])
 {
     QApplication a(argc, argv);
-    MainWindow w;
-
-    User Current_User();
-
-
+    User Current_User;
+    MainWindow w(Current_User.getTaskList());
     w.show();
 
     return a.exec();
