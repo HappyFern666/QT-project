@@ -9,12 +9,12 @@ class User {
 private:
     QString Id;
     QString Password;
-    std::list<Schedule> *TaskList;
+    std::list<Schedule> TaskList;
 public:
     User() {}
     QString & setId();
     QString & setPassword();
-    std::list<Schedule>* getTaskList();
+    std::list<Schedule> & getTaskList();
 };
 
 #endif // USER_H

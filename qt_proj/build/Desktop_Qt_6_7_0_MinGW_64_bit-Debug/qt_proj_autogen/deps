@@ -1058,6 +1058,7 @@ qt_proj_autogen/timestamp: \
 	C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
 	C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
 	D:/code/csh/qt/QT-project/qt_proj/CMakeLists.txt \
+	D:/code/csh/qt/QT-project/qt_proj/Schedule.cpp \
 	D:/code/csh/qt/QT-project/qt_proj/Schedule.h \
 	D:/code/csh/qt/QT-project/qt_proj/User.cpp \
 	D:/code/csh/qt/QT-project/qt_proj/User.h \

@@ -12,23 +12,27 @@ class Add_Schedule;
 class Add_Schedule : public QDialog
 {
     Q_OBJECT
+signals:
+    void scheduleClosed();
 
 public:
-    explicit Add_Schedule(std::list<Schedule> *schedulelist, QWidget *parent = nullptr);
+    explicit Add_Schedule(std::list<Schedule> & schedulelist, QWidget *parent = nullptr);
     ~Add_Schedule();
 
 private slots:
     void on_confirmButton_clicked();
 
+    void on_radioButton_3_clicked();
+
 private:
     Ui::Add_Schedule *ui;
     QLineEdit *lineEdit;
+    QLineEdit *TimeEdit;
+    QLineEdit *TagEdit;
+    QLineEdit *NoteEdit;
     QGroupBox *groupBox;
-    QRadioButton *radioButton1;
-    QRadioButton *radioButton2;
-    QRadioButton *radioButton3;
     QPushButton *confirmButton;
-    std::list<Schedule> *schedulelist;
+    std::list<Schedule> & schedulelist;
 };
 
 #endif // ADD_SCHEDULE_H

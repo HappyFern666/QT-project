@@ -1,5 +1,5 @@
 #include "User.h"
 
-std::list<Schedule>* User::getTaskList() {
+std::list<Schedule> & User::getTaskList() {
     return TaskList;
 }

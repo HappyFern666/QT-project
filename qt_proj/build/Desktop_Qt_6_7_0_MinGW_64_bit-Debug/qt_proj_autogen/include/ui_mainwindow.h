@@ -12,10 +12,12 @@
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QFrame>
+#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
-#include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
+#include <QtWidgets/QTableWidget>
+#include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
 
@@ -29,11 +31,12 @@ public:
     QVBoxLayout *verticalLayout;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_2;
-    QWidget *verticalLayoutWidget_3;
-    QVBoxLayout *verticalLayout_3;
-    QPushButton *Add_Schedule;
     QFrame *line;
     QFrame *line_2;
+    QWidget *verticalLayoutWidget_3;
+    QVBoxLayout *verticalLayout_3;
+    QTableWidget *tableWidget;
+    QToolButton *Add_Schedule;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -52,22 +55,10 @@ public:
         verticalLayout->setContentsMargins(0, 0, 0, 0);
         verticalLayoutWidget_2 = new QWidget(centralwidget);
         verticalLayoutWidget_2->setObjectName("verticalLayoutWidget_2");
-        verticalLayoutWidget_2->setGeometry(QRect(280, 120, 221, 401));
+        verticalLayoutWidget_2->setGeometry(QRect(580, 40, 221, 481));
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
-        verticalLayoutWidget_3 = new QWidget(centralwidget);
-        verticalLayoutWidget_3->setObjectName("verticalLayoutWidget_3");
-        verticalLayoutWidget_3->setGeometry(QRect(579, 40, 201, 481));
-        verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
-        verticalLayout_3->setObjectName("verticalLayout_3");
-        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
-        Add_Schedule = new QPushButton(verticalLayoutWidget_3);
-        Add_Schedule->setObjectName("Add_Schedule");
-        Add_Schedule->setEnabled(true);
-
-        verticalLayout_3->addWidget(Add_Schedule);
-
         line = new QFrame(centralwidget);
         line->setObjectName("line");
         line->setGeometry(QRect(200, 40, 81, 481));
@@ -82,6 +73,22 @@ public:
         line_2->setLineWidth(2);
         line_2->setMidLineWidth(1);
         line_2->setFrameShape(QFrame::Shape::VLine);
+        verticalLayoutWidget_3 = new QWidget(centralwidget);
+        verticalLayoutWidget_3->setObjectName("verticalLayoutWidget_3");
+        verticalLayoutWidget_3->setGeometry(QRect(280, 119, 221, 341));
+        verticalLayout_3 = new QVBoxLayout(verticalLayoutWidget_3);
+        verticalLayout_3->setObjectName("verticalLayout_3");
+        verticalLayout_3->setContentsMargins(0, 0, 0, 0);
+        tableWidget = new QTableWidget(verticalLayoutWidget_3);
+        tableWidget->setObjectName("tableWidget");
+        tableWidget->setColumnCount(0);
+
+        verticalLayout_3->addWidget(tableWidget);
+
+        Add_Schedule = new QToolButton(centralwidget);
+        Add_Schedule->setObjectName("Add_Schedule");
+        Add_Schedule->setEnabled(true);
+        Add_Schedule->setGeometry(QRect(420, 490, 96, 23));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");

@@ -28,35 +28,13 @@
    <widget class="QWidget" name="verticalLayoutWidget_2">
     <property name="geometry">
      <rect>
-      <x>280</x>
-      <y>120</y>
-      <width>221</width>
-      <height>401</height>
-     </rect>
-    </property>
-    <layout class="QVBoxLayout" name="verticalLayout_2"/>
-   </widget>
-   <widget class="QWidget" name="verticalLayoutWidget_3">
-    <property name="geometry">
-     <rect>
-      <x>579</x>
+      <x>580</x>
       <y>40</y>
-      <width>201</width>
+      <width>221</width>
       <height>481</height>
      </rect>
     </property>
-    <layout class="QVBoxLayout" name="verticalLayout_3">
-     <item>
-      <widget class="QPushButton" name="Add_Schedule">
-       <property name="enabled">
-        <bool>true</bool>
-       </property>
-       <property name="text">
-        <string>Add Schedule</string>
-       </property>
-      </widget>
-     </item>
-    </layout>
+    <layout class="QVBoxLayout" name="verticalLayout_2"/>
    </widget>
    <widget class="Line" name="line">
     <property name="geometry">
@@ -97,6 +75,41 @@
     </property>
     <property name="orientation">
      <enum>Qt::Vertical</enum>
+    </property>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_3">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>119</y>
+      <width>221</width>
+      <height>341</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout_3">
+     <item>
+      <widget class="QTableWidget" name="tableWidget">
+       <property name="columnCount">
+        <number>0</number>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QToolButton" name="Add_Schedule">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>420</x>
+      <y>490</y>
+      <width>96</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Add Schedule</string>
     </property>
    </widget>
   </widget>

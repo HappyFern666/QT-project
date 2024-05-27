@@ -397,6 +397,7 @@
 	"SETTINGS_FILE" : "D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/qt_proj_autogen.dir/AutogenUsed.txt",
 	"SOURCES" : 
 	[
+		[ "D:/code/csh/qt/QT-project/qt_proj/Schedule.cpp", "MU", null ],
 		[ "D:/code/csh/qt/QT-project/qt_proj/User.cpp", "MU", null ],
 		[ "D:/code/csh/qt/QT-project/qt_proj/add_schedule.cpp", "MU", null ],
 		[ "D:/code/csh/qt/QT-project/qt_proj/main.cpp", "MU", null ],
