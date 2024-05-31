@@ -32,6 +32,10 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         add_schedule.h add_schedule.cpp add_schedule.ui
         User.cpp
         Schedule.cpp
+        delete_schedule.h delete_schedule.cpp
+        Delete_Schedule.ui
+        modify_schedule.h modify_schedule.cpp
+        Modify_schedule.ui
 
     )
 else()

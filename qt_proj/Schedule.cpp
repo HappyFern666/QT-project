@@ -17,6 +17,8 @@ QString & Schedule::GetTime() {
 }
 
 bool Schedule::operator< (const Schedule & b) {
+    if (Time.isEmpty()) return false;
+    if (b.Time.isEmpty()) return true;
     if (Time[0] != b.Time[0]) return Time[0] < b.Time[0];
     if (Time[1] != b.Time[1]) return Time[1] < b.Time[1];
     if (Time[3] != b.Time[3]) return Time[3] < b.Time[3];
