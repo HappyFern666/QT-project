@@ -96,6 +96,7 @@ void MainWindow::ShowSchedule() {
         ui->tableWidget->insertRow(row);
         QCheckBox *done = new QCheckBox();
         ui->tableWidget->setCellWidget(row,0,done);
+        ui->tableWidget->setColumnWidth(0, 50); // 设置第一列宽度为50像素
         // 创建单元格并设置内容
         QTableWidgetItem *taskItem = new QTableWidgetItem(schedule.GetTaskName());
         taskItem->setTextAlignment(Qt::AlignVCenter);

@@ -65,9 +65,15 @@ void Add_Schedule::on_confirmButton_clicked()
     }
     if (userinput.isEmpty()) {
         QMessageBox::warning(this, "Warning", "Please input Task Name");
+        close();
+        emit scheduleClosed();
+        return;
     }
     if (selectedOption.isEmpty()) {
         QMessageBox::warning(this, "Warning", "Please Select Tag");
+        close();
+        emit scheduleClosed();
+        return;
     }
     Schedule schedule(userinput, selectedOption, TimeInput, NoteInput);
     // 将新创建的 Schedule 对象添加到 schedulelist 中
