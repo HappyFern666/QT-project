@@ -1069,9 +1069,15 @@ qt_proj_autogen/timestamp: \
 	D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeRCCompiler.cmake \
 	D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/CMakeFiles/3.27.7/CMakeSystem.cmake \
 	D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/qt_proj_autogen/moc_predefs.h \
+	D:/code/csh/qt/QT-project/qt_proj/delete_schedule.cpp \
+	D:/code/csh/qt/QT-project/qt_proj/delete_schedule.h \
 	D:/code/csh/qt/QT-project/qt_proj/main.cpp \
 	D:/code/csh/qt/QT-project/qt_proj/mainwindow.cpp \
 	D:/code/csh/qt/QT-project/qt_proj/mainwindow.h \
+	D:/code/csh/qt/QT-project/qt_proj/modify_schedule.cpp \
+	D:/code/csh/qt/QT-project/qt_proj/modify_schedule.h \
+	D:/code/csh/qt/QT-project/qt_proj/Delete_Schedule.ui \
+	D:/code/csh/qt/QT-project/qt_proj/Modify_schedule.ui \
 	D:/code/csh/qt/QT-project/qt_proj/add_schedule.ui \
 	D:/code/csh/qt/QT-project/qt_proj/mainwindow.ui \
 	C:/Qt/Tools/CMake_64/bin/cmake.exe

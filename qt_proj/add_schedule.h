@@ -24,6 +24,8 @@ private slots:
 
     void on_radioButton_3_clicked();
 
+    void hideTagEdit() ;
+
 private:
     Ui::Add_Schedule *ui;
     QLineEdit *lineEdit;

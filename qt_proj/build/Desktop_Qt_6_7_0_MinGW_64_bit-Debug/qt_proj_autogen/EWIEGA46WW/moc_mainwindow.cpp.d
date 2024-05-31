@@ -861,4 +861,6 @@ D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/qt_p
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
   D:/code/csh/qt/QT-project/qt_proj/Schedule.h \
-  D:/code/csh/qt/QT-project/qt_proj/add_schedule.h
+  D:/code/csh/qt/QT-project/qt_proj/add_schedule.h \
+  D:/code/csh/qt/QT-project/qt_proj/delete_schedule.h \
+  D:/code/csh/qt/QT-project/qt_proj/modify_schedule.h

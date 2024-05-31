@@ -21,7 +21,9 @@ Add_Schedule::Add_Schedule(std::list<Schedule> & schedulelist_, QWidget *parent)
     connect(ui->confirmButton, &QPushButton::clicked, this, &Add_Schedule::on_confirmButton_clicked);
     ui->label_3->hide();
     TagEdit->hide();
-
+    connect(ui->radioButton, &QPushButton::clicked, this, &Add_Schedule::hideTagEdit);
+    connect(ui->radioButton_2, &QPushButton::clicked, this, &Add_Schedule::hideTagEdit);
+    connect(ui->radioButton_4, &QPushButton::clicked, this, &Add_Schedule::hideTagEdit);
 }
 Add_Schedule::~Add_Schedule()
 {
@@ -85,5 +87,10 @@ void Add_Schedule::on_radioButton_3_clicked()
 {
     ui->label_3->show();
     TagEdit->show();
+}
+
+void Add_Schedule::hideTagEdit() {
+    ui->label_3->hide();
+    TagEdit->hide();
 }
 

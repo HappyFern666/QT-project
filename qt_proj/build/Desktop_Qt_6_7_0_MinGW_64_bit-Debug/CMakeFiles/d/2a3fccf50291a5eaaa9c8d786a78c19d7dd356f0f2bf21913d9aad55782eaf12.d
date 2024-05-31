@@ -1059,6 +1059,8 @@ qt_proj_autogen/timestamp: \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wchar.h \
   C:/Qt/Tools/mingw1120_64/x86_64-w64-mingw32/include/wctype.h \
   D:/code/csh/qt/QT-project/qt_proj/CMakeLists.txt \
+  D:/code/csh/qt/QT-project/qt_proj/Delete_Schedule.ui \
+  D:/code/csh/qt/QT-project/qt_proj/Modify_schedule.ui \
   D:/code/csh/qt/QT-project/qt_proj/Schedule.cpp \
   D:/code/csh/qt/QT-project/qt_proj/Schedule.h \
   D:/code/csh/qt/QT-project/qt_proj/User.cpp \
@@ -1071,7 +1073,11 @@ qt_proj_autogen/timestamp: \
   CMakeFiles/3.27.7/CMakeRCCompiler.cmake \
   CMakeFiles/3.27.7/CMakeSystem.cmake \
   qt_proj_autogen/moc_predefs.h \
+  D:/code/csh/qt/QT-project/qt_proj/delete_schedule.cpp \
+  D:/code/csh/qt/QT-project/qt_proj/delete_schedule.h \
   D:/code/csh/qt/QT-project/qt_proj/main.cpp \
   D:/code/csh/qt/QT-project/qt_proj/mainwindow.cpp \
   D:/code/csh/qt/QT-project/qt_proj/mainwindow.h \
-  D:/code/csh/qt/QT-project/qt_proj/mainwindow.ui
+  D:/code/csh/qt/QT-project/qt_proj/mainwindow.ui \
+  D:/code/csh/qt/QT-project/qt_proj/modify_schedule.cpp \
+  D:/code/csh/qt/QT-project/qt_proj/modify_schedule.h

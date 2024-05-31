@@ -314,9 +314,21 @@
 			null
 		],
 		[
+			"D:/code/csh/qt/QT-project/qt_proj/delete_schedule.h",
+			"MU",
+			"EWIEGA46WW/moc_delete_schedule.cpp",
+			null
+		],
+		[
 			"D:/code/csh/qt/QT-project/qt_proj/mainwindow.h",
 			"MU",
 			"EWIEGA46WW/moc_mainwindow.cpp",
+			null
+		],
+		[
+			"D:/code/csh/qt/QT-project/qt_proj/modify_schedule.h",
+			"MU",
+			"EWIEGA46WW/moc_modify_schedule.cpp",
 			null
 		]
 	],
@@ -400,8 +412,10 @@
 		[ "D:/code/csh/qt/QT-project/qt_proj/Schedule.cpp", "MU", null ],
 		[ "D:/code/csh/qt/QT-project/qt_proj/User.cpp", "MU", null ],
 		[ "D:/code/csh/qt/QT-project/qt_proj/add_schedule.cpp", "MU", null ],
+		[ "D:/code/csh/qt/QT-project/qt_proj/delete_schedule.cpp", "MU", null ],
 		[ "D:/code/csh/qt/QT-project/qt_proj/main.cpp", "MU", null ],
-		[ "D:/code/csh/qt/QT-project/qt_proj/mainwindow.cpp", "MU", null ]
+		[ "D:/code/csh/qt/QT-project/qt_proj/mainwindow.cpp", "MU", null ],
+		[ "D:/code/csh/qt/QT-project/qt_proj/modify_schedule.cpp", "MU", null ]
 	],
 	"UIC_OPTIONS" : [],
 	"UIC_SEARCH_PATHS" : [],
