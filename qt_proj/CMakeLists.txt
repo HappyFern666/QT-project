@@ -37,6 +37,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         modify_schedule.h modify_schedule.cpp
         Modify_schedule.ui
 
+
     )
 else()
     if(ANDROID)

@@ -7,18 +7,30 @@
 #include <QtWidgets>
 #include <QtUiTools/QUiLoader>
 #include <QFile>
+#include <QDate>
 
-MainWindow::MainWindow(std::list<Schedule> & schedulelist, QWidget *parent)
+
+
+MainWindow::MainWindow(std::list<Schedule> & schedulelist, QWidget *parent, QDate currentDate_)
     : QMainWindow(parent)
     , ui(new Ui::MainWindow)
     , schedulelist(schedulelist)
+    , currentDate(currentDate_)
+    , tempdate(currentDate_)
 {
     ui->setupUi(this);
     addScheduleWindow = new Add_Schedule(schedulelist,this);
     deleteScheduleWindow = new Delete_Schedule(schedulelist,this);
     modifyScheduleWindow = new Modify_Schedule(schedulelist,this);
-    ShowSchedule();
+
+    calendar = ui->calendarWidget;
+    calendar->setSelectedDate(tempdate);
+    connect(calendar, &QCalendarWidget::selectionChanged, this, &MainWindow::onCalendarSelectionChanged);
+
+
+    ShowSchedule(tempdate);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
+    modify_layout = ui->verticalLayout_2;
 }
 
 MainWindow::~MainWindow()
@@ -45,6 +57,9 @@ void MainWindow::on_Delete_Schedule_clicked(int row)
     connect(deleteScheduleWindow, &Delete_Schedule::scheduleClosed, this, &MainWindow::del_handleScheduleClosed);
 }
 void MainWindow::on_Modify_Schedule_clicked(int row){
+
+    modify_layout->addWidget(modifyScheduleWindow);
+
     qDebug() << "Modify Schedule opened\n";
     qDebug() << schedulelist.size();
     modifyScheduleWindow->row=row;
@@ -82,8 +97,12 @@ void MainWindow::on_Modify_Schedule_clicked(int row){
     connect(modifyScheduleWindow, &Modify_Schedule::scheduleClosed, this, &MainWindow::modify_handleScheduleClosed);
 }
 
-void MainWindow::ShowSchedule() {
-    schedulelist.sort();
+void MainWindow::ShowSchedule(QDate currentDate) {
+    std::list<Schedule> DateList;
+    for (auto s = schedulelist.begin(); s != schedulelist.end(); ++s)
+        if (s->GetDate() == currentDate)
+            DateList.push_back(*s);
+    DateList.sort();
     ui->tableWidget->clearContents();
     ui->tableWidget->setRowCount(0);
     ui->tableWidget->setColumnCount(5);
@@ -91,12 +110,15 @@ void MainWindow::ShowSchedule() {
     ui->tableWidget->horizontalHeader()->hide();
     // 逐个添加 schedulelist 中的每个 Schedule 条目到表格中
     int row = 0;
-    for (auto & schedule : schedulelist) {
+    for (auto & schedule : DateList) {
         // 在表格中插入一行
         ui->tableWidget->insertRow(row);
         QCheckBox *done = new QCheckBox();
         ui->tableWidget->setCellWidget(row,0,done);
         ui->tableWidget->setColumnWidth(0, 50); // 设置第一列宽度为50像素
+        connect(done, &QCheckBox::stateChanged, [this,row] () {
+            on_CheckBox_statechanged(row);
+        });
         // 创建单元格并设置内容
         QTableWidgetItem *taskItem = new QTableWidgetItem(schedule.GetTaskName());
         taskItem->setTextAlignment(Qt::AlignVCenter);
@@ -115,22 +137,55 @@ void MainWindow::ShowSchedule() {
             on_Delete_Schedule_clicked(row); // 当按钮被点击时，调用删除日程的函数
         });
         ui->tableWidget->setCellWidget(row, 4, deleteButton);
+        if (schedule.done() == true) {
+            QFont font = taskItem->font(); // 获取字体对象
+            font.setStrikeOut(true); // 设置字体为被划掉效果
+            taskItem->setFont(font);
+            TimeItem->setFont(font);
+        } else {
+            if (schedule.GetTag() == "Study") {
+                QColor skyblue(135, 206, 235);
+                taskItem->setBackground(QBrush(skyblue));
+                TimeItem->setBackground(QBrush(skyblue));
+            }
+            else if (schedule.GetTag() == "Workout") {
+                QColor violetColor(238, 130, 238);
+                taskItem->setBackground(QBrush(violetColor));
+                TimeItem->setBackground(QBrush(violetColor));
+            }
+            else if (schedule.GetTag() == "Shopping") {
+                QColor orangeColor(255, 165, 0);
+                taskItem->setBackground(QBrush(orangeColor));
+                TimeItem->setBackground(QBrush(orangeColor));
+            }
+        }
 
-        if (schedule.GetTag() == "Study") {
-            QColor skyblue(135, 206, 235);
-            taskItem->setBackground(QBrush(skyblue));
-            TimeItem->setBackground(QBrush(skyblue));
-        }
-        else if (schedule.GetTag() == "Workout") {
-            QColor violetColor(238, 130, 238);
-            taskItem->setBackground(QBrush(violetColor));
-            TimeItem->setBackground(QBrush(violetColor));
-        }
-        else if (schedule.GetTag() == "Shopping") {
-            QColor orangeColor(255, 165, 0);
-            taskItem->setBackground(QBrush(orangeColor));
-            TimeItem->setBackground(QBrush(orangeColor));
-        }
         row++;
     }
 }
+
+void MainWindow::on_BackToToday_clicked()
+{
+    calendar->setMinimumDate(startOfWeek);
+    calendar->setSelectedDate(QDate::currentDate());
+    tempdate = QDate::currentDate();
+    ShowSchedule(tempdate);
+}
+
+void MainWindow::onCalendarSelectionChanged() {
+    tempdate = calendar->selectedDate();
+    ShowSchedule(tempdate); // 更新日程显示
+}
+
+QDate MainWindow::GetTempDate() {
+    return tempdate;
+}
+
+void MainWindow::on_CheckBox_statechanged(int row) {
+
+    auto it = schedulelist.begin(); // 开始时指向 list 的开始
+    std::advance(it, row);
+    it->done() = true;
+    ShowSchedule(tempdate);
+}
+

@@ -1,5 +1,6 @@
 D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/qt_proj_autogen/EWIEGA46WW/moc_add_schedule.cpp: D:/code/csh/qt/QT-project/qt_proj/add_schedule.h \
   D:/code/csh/qt/QT-project/qt_proj/build/Desktop_Qt_6_7_0_MinGW_64_bit-Debug/qt_proj_autogen/moc_predefs.h \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/QDate \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QEvent \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QHash \

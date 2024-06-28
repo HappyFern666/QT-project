@@ -1,4 +1,5 @@
 qt_proj_autogen/timestamp: \
+  C:/Qt/6.7.0/mingw_64/include/QtCore/QDate \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QDeadlineTimer \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QEvent \
   C:/Qt/6.7.0/mingw_64/include/QtCore/QHash \
@@ -403,11 +404,18 @@ qt_proj_autogen/timestamp: \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qwindowdefs_win.h \
   C:/Qt/6.7.0/mingw_64/include/QtGui/qwindowsmimeconverter.h \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QApplication \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QCalendarWidget \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QCommonStyle \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QDialog \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QHBoxLayout \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QHeaderView \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLabel \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QLayout \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QMainWindow \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QScrollerProperties \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QTableView \
+  C:/Qt/6.7.0/mingw_64/include/QtWidgets/QToolButton \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QtWidgets \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/QtWidgetsDepends \
   C:/Qt/6.7.0/mingw_64/include/QtWidgets/qabstractbutton.h \
@@ -1073,6 +1081,7 @@ qt_proj_autogen/timestamp: \
   CMakeFiles/3.27.7/CMakeRCCompiler.cmake \
   CMakeFiles/3.27.7/CMakeSystem.cmake \
   qt_proj_autogen/moc_predefs.h \
+  D:/code/csh/qt/QT-project/qt_proj/customcalendar.h \
   D:/code/csh/qt/QT-project/qt_proj/delete_schedule.cpp \
   D:/code/csh/qt/QT-project/qt_proj/delete_schedule.h \
   D:/code/csh/qt/QT-project/qt_proj/main.cpp \

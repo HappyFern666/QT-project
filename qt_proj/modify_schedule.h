@@ -17,7 +17,7 @@ signals:
 
 public:
     int row;
-    explicit Modify_Schedule(std::list<Schedule> & schedulelist, QWidget *parent = nullptr);
+    explicit Modify_Schedule(std::list<Schedule> & schedulelist, QWidget *parent = nullptr, QDate currentDate_ = QDate::currentDate());
     ~Modify_Schedule();
 
 private slots:
@@ -35,6 +35,8 @@ private:
     QPushButton *confirmButton;
     std::list<Schedule> & schedulelist;
     friend class MainWindow;
+    QDate currentDate;
+    QRadioButton *delayButton;
 };
 
 #endif // MODIFY_SCHEDULE_H

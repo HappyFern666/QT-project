@@ -1,6 +1,7 @@
 #include "add_schedule.h"
 #include "ui_add_schedule.h"
 #include "Schedule.h"
+#include "mainwindow.h"
 
 #include <QtWidgets>
 #include <QDebug>
@@ -36,7 +37,7 @@ void Add_Schedule::on_confirmButton_clicked()
     /*非常抱歉，不加这愚蠢的两行，on_confirmButton_clicked就会被完整执行两次。也不知道为什么。*/
     disconnect(ui->confirmButton, &QPushButton::clicked, this, &Add_Schedule::on_confirmButton_clicked);
     connect(ui->confirmButton, &QPushButton::clicked, this, &Add_Schedule::on_confirmButton_clicked);
-
+    MainWindow *mw = qobject_cast<MainWindow *>(parentWidget());
     QString userinput = lineEdit->text();
     QString TimeInput = TimeEdit->text();
     QString NoteInput = NoteEdit->text();
@@ -75,7 +76,8 @@ void Add_Schedule::on_confirmButton_clicked()
         emit scheduleClosed();
         return;
     }
-    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput);
+    QDate d = mw->GetTempDate();
+    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, d);
     // 将新创建的 Schedule 对象添加到 schedulelist 中
     schedulelist.push_back(schedule);
     ui->label_3->hide();
@@ -86,6 +88,7 @@ void Add_Schedule::on_confirmButton_clicked()
     NoteEdit->clear();
     close();
     emit scheduleClosed();
+    mw->ShowSchedule(d);
 }
 
 

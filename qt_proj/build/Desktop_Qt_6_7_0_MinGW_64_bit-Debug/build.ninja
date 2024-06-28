@@ -208,7 +208,7 @@ build qt_proj_autogen_timestamp_deps: phony CMakeFiles/qt_proj_autogen_timestamp
 #############################################
 # Utility command for qt_proj_autogen
 
-build qt_proj_autogen: phony CMakeFiles/qt_proj_autogen qt_proj_autogen/include/ui_mainwindow.h qt_proj_autogen/include/ui_add_schedule.h qt_proj_autogen/include/ui_Delete_Schedule.h qt_proj_autogen/include/ui_Modify_schedule.h qt_proj_autogen/timestamp qt_proj_autogen/mocs_compilation.cpp qt_proj_autogen_timestamp_deps
+build qt_proj_autogen: phony CMakeFiles/qt_proj_autogen qt_proj_autogen/include/ui_mainwindow.h qt_proj_autogen/include/ui_add_schedule.h qt_proj_autogen/include/ui_delete_schedule.h qt_proj_autogen/include/ui_modify_schedule.h qt_proj_autogen/timestamp qt_proj_autogen/mocs_compilation.cpp qt_proj_autogen_timestamp_deps
 
 
 #############################################
@@ -224,13 +224,13 @@ build qt_proj_autogen/timestamp qt_proj_autogen/mocs_compilation.cpp | ${cmake_n
 #############################################
 # Phony custom command for CMakeFiles\qt_proj_autogen_timestamp_deps
 
-build CMakeFiles/qt_proj_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/qt_proj_autogen_timestamp_deps: phony C$:/Qt/6.7.0/mingw_64/./bin/moc.exe C$:/Qt/6.7.0/mingw_64/./bin/uic.exe C$:/Qt/6.7.0/mingw_64/lib/libQt6UiTools.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a
+build CMakeFiles/qt_proj_autogen_timestamp_deps | ${cmake_ninja_workdir}CMakeFiles/qt_proj_autogen_timestamp_deps: phony C$:/Qt/6.7.0/mingw_64/./bin/uic.exe C$:/Qt/6.7.0/mingw_64/./bin/moc.exe C$:/Qt/6.7.0/mingw_64/lib/libQt6Widgets.a C$:/Qt/6.7.0/mingw_64/lib/libQt6UiTools.a C$:/Qt/6.7.0/mingw_64/lib/libQt6Core.a
 
 
 #############################################
 # Phony custom command for CMakeFiles\qt_proj_autogen
 
-build CMakeFiles/qt_proj_autogen qt_proj_autogen/include/ui_mainwindow.h qt_proj_autogen/include/ui_add_schedule.h qt_proj_autogen/include/ui_Delete_Schedule.h qt_proj_autogen/include/ui_Modify_schedule.h | ${cmake_ninja_workdir}CMakeFiles/qt_proj_autogen ${cmake_ninja_workdir}qt_proj_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}qt_proj_autogen/include/ui_add_schedule.h ${cmake_ninja_workdir}qt_proj_autogen/include/ui_Delete_Schedule.h ${cmake_ninja_workdir}qt_proj_autogen/include/ui_Modify_schedule.h: phony qt_proj_autogen/timestamp || qt_proj_autogen_timestamp_deps
+build CMakeFiles/qt_proj_autogen qt_proj_autogen/include/ui_mainwindow.h qt_proj_autogen/include/ui_add_schedule.h qt_proj_autogen/include/ui_delete_schedule.h qt_proj_autogen/include/ui_modify_schedule.h | ${cmake_ninja_workdir}CMakeFiles/qt_proj_autogen ${cmake_ninja_workdir}qt_proj_autogen/include/ui_mainwindow.h ${cmake_ninja_workdir}qt_proj_autogen/include/ui_add_schedule.h ${cmake_ninja_workdir}qt_proj_autogen/include/ui_delete_schedule.h ${cmake_ninja_workdir}qt_proj_autogen/include/ui_modify_schedule.h: phony qt_proj_autogen/timestamp || qt_proj_autogen_timestamp_deps
 
 # =============================================================================
 # Target aliases.

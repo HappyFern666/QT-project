@@ -37,7 +37,7 @@ public:
         del_concelButton->setGeometry(QRect(180, 100, 80, 18));
         textBrowser = new QTextBrowser(Delete_Schedule);
         textBrowser->setObjectName("textBrowser");
-        textBrowser->setGeometry(QRect(70, 30, 161, 51));
+        textBrowser->setGeometry(QRect(40, 40, 221, 41));
 
         retranslateUi(Delete_Schedule);
 

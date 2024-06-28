@@ -1,14 +1,16 @@
 #include "modify_schedule.h"
 #include "ui_modify_schedule.h"
 #include "Schedule.h"
+#include "mainwindow.h"
 
 #include <QtWidgets>
 #include <QDebug>
 
-Modify_Schedule::Modify_Schedule(std::list<Schedule> & schedulelist_, QWidget *parent)
+Modify_Schedule::Modify_Schedule(std::list<Schedule> & schedulelist_, QWidget *parent, QDate currentDate_)
     : QDialog(parent)
     , ui(new Ui::Modify_Schedule)
     , schedulelist(schedulelist_)
+    , currentDate(currentDate_)
 {
     ui->setupUi(this);
     lineEdit = ui->lineEdit;
@@ -21,7 +23,7 @@ Modify_Schedule::Modify_Schedule(std::list<Schedule> & schedulelist_, QWidget *p
     connect(ui->confirmButton, &QPushButton::clicked, this, &Modify_Schedule::on_modify_confirmButton_clicked);
     ui->label_3->hide();
     TagEdit->hide();
-
+    delayButton = ui->DelayButton;
 }
 Modify_Schedule::~Modify_Schedule()
 {
@@ -71,7 +73,15 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
     if (selectedOption.isEmpty()) {
         QMessageBox::warning(this, "Warning", "Please Select Tag");
     }
-    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput);
+    QDate nDate = currentDate;
+    qDebug() << nDate.toString("yyyy-MM-dd");
+    if (delayButton->isChecked()) {
+        qDebug() << "has delayed";
+        nDate = currentDate.addDays(1);
+        delayButton->setChecked(false);
+    }
+    qDebug()<< nDate.toString("yyyy-MM-dd");
+    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, nDate);
     // 将新创建的 Schedule 对象添加到 schedulelist 中
     schedulelist.push_back(schedule);
     ui->label_3->hide();
@@ -82,6 +92,8 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
     NoteEdit->clear();
     close();
     emit scheduleClosed();
+    MainWindow *mw = qobject_cast<MainWindow *>(parentWidget());
+    mw->ShowSchedule(mw->GetTempDate());
 }
 
 
@@ -90,4 +102,6 @@ void Modify_Schedule::on_modify_radioButton_3_clicked()
     ui->label_3->show();
     TagEdit->show();
 }
+
+
 

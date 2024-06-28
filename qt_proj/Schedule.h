@@ -2,24 +2,26 @@
 #define SCHEDULE_H
 
 #include <QString>
+#include <QDate>
 
 class Schedule {
 private:
-    bool Done;
+    bool Done = false;
     QString Time;
     QString TaskName;
     QString Place;
-    Schedule* Subtasks[20];
     int Rating;
     QString Tag;
     QString Content;
+    QDate Date;
 public:
-    Schedule(const QString& name_, const QString& tag_, const QString & Time_ , const QString & Note_): TaskName(name_), Tag(tag_), Time(Time_), Content(Note_) {}
-    bool doneSchedule();
+    Schedule(const QString& name_, const QString& tag_, const QString & Time_ , const QString & Note_, const QDate & currentDate): TaskName(name_), Tag(tag_), Time(Time_), Content(Note_), Date(currentDate) {}
+    bool & done();
     QString & GetTaskName();
     QString & GetTag();
     QString & GetTime();
     QString & GetContent();
+    QDate & GetDate();
     bool operator< (const Schedule & b);
 };
 

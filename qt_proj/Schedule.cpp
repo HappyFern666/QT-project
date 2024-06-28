@@ -16,6 +16,10 @@ QString & Schedule::GetTime() {
     return Time;
 }
 
+QDate & Schedule::GetDate() {
+    return Date;
+}
+
 bool Schedule::operator< (const Schedule & b) {
     if (Time.isEmpty()) return false;
     if (b.Time.isEmpty()) return true;
@@ -23,4 +27,8 @@ bool Schedule::operator< (const Schedule & b) {
     if (Time[1] != b.Time[1]) return Time[1] < b.Time[1];
     if (Time[3] != b.Time[3]) return Time[3] < b.Time[3];
     return Time[4] < b.Time[4];
+}
+
+bool & Schedule::done() {
+    return Done;
 }
