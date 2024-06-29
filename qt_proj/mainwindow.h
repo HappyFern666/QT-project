@@ -27,37 +27,9 @@ public:
 
 private slots:
     void on_Add_Schedule_clicked();
-    void handleScheduleClosed() {
-        qDebug() << "add schedule closed\n";
-        qDebug() << schedulelist.size();
-        for (auto i = schedulelist.begin(); i!=schedulelist.end(); ++i) {
-            qDebug() << "Schedule Name: " << i->GetTaskName() << "Schedule Tag: " << i->GetTag();
-            qDebug() << "Schedule Time: " << i->GetTime() << "Schedule Content: " << i->GetContent();
-            qDebug() << "Schedule Day: " << i->GetDate().toString();
-        }
-        ShowSchedule(tempdate);
-    }
-    void del_handleScheduleClosed(){
-        qDebug() << "delete schedule closed\n";
-        qDebug() << schedulelist.size();
-        for (auto i = schedulelist.begin(); i!=schedulelist.end(); ++i) {
-            qDebug() << "Schedule Name: " << i->GetTaskName() << "Schedule Tag: " << i->GetTag();
-            qDebug() << "Schedule Time: " << i->GetTime() << "Schedule Content: " << i->GetContent();
-        }
-
-        ShowSchedule(tempdate);
-    }
-    void modify_handleScheduleClosed(){
-        qDebug() << "modify schedule closed\n";
-        qDebug() << schedulelist.size();
-        for (auto i = schedulelist.begin(); i!=schedulelist.end(); ++i) {
-            qDebug() << "Schedule Name: " << i->GetTaskName() << "Schedule Tag: " << i->GetTag();
-            qDebug() << "Schedule Time: " << i->GetTime() << "Schedule Content: " << i->GetContent();
-        }
-
-
-        ShowSchedule(tempdate);
-    }
+    void handleScheduleClosed() ;
+    void del_handleScheduleClosed();
+    void modify_handleScheduleClosed();
     void on_Delete_Schedule_clicked(Schedule sd);
     void on_Modify_Schedule_clicked(Schedule sd);
 
@@ -70,21 +42,30 @@ private slots:
     void updateTimer();
 
 private:
+
+
     Ui::MainWindow *ui;
     std::list<Schedule> & schedulelist;
     Add_Schedule *addScheduleWindow;
     Delete_Schedule *deleteScheduleWindow;
     Modify_Schedule *modifyScheduleWindow;
+
     QDate currentDate;
+
     QVBoxLayout *modify_layout;
-    QString calendar_style_sheet;
-    QDate startOfWeek;
     QCalendarWidget *calendar;
+
     QDate tempdate;
+
     QLabel *background;
     QTimer *timer;
     QLabel *timerlabel;
     QImage image;
-    QPainter painter;
+
+    QTableWidget *table;
+    QTableWidget *importantUrgent;
+    QTableWidget *importantNotUrgent;
+    QTableWidget *notImportantUrgent;
+    QTableWidget *notImportantNotUrgent;
 };
 #endif // MAINWINDOW_H

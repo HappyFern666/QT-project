@@ -13,13 +13,11 @@
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QFrame>
-#include <QtWidgets/QHeaderView>
 #include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
 #include <QtWidgets/QStatusBar>
-#include <QtWidgets/QTableWidget>
 #include <QtWidgets/QToolButton>
 #include <QtWidgets/QVBoxLayout>
 #include <QtWidgets/QWidget>
@@ -38,7 +36,6 @@ public:
     QToolButton *Add_Schedule;
     QWidget *verticalLayoutWidget;
     QVBoxLayout *verticalLayout;
-    QTableWidget *tableWidget;
     QCalendarWidget *calendarWidget;
     QPushButton *BackToToday;
     QMenuBar *menubar;
@@ -84,11 +81,6 @@ public:
         verticalLayout = new QVBoxLayout(verticalLayoutWidget);
         verticalLayout->setObjectName("verticalLayout");
         verticalLayout->setContentsMargins(0, 0, 0, 0);
-        tableWidget = new QTableWidget(verticalLayoutWidget);
-        tableWidget->setObjectName("tableWidget");
-
-        verticalLayout->addWidget(tableWidget);
-
         calendarWidget = new QCalendarWidget(centralwidget);
         calendarWidget->setObjectName("calendarWidget");
         calendarWidget->setGeometry(QRect(40, 30, 271, 191));
