@@ -6,7 +6,7 @@
 #include "add_schedule.h"
 #include "delete_schedule.h"
 #include "modify_schedule.h"
-#include "CustomCalendar.h"
+#include <QTimer>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -22,6 +22,7 @@ public:
     MainWindow(std::list<Schedule> & schedulelist_, QWidget *parent = nullptr, QDate currentDate = QDate::currentDate());
     ~MainWindow();
     void ShowSchedule(QDate currentDate);
+    void ShowFourQuadrant(QDate currentDate);
     QDate GetTempDate();
 
 private slots:
@@ -66,6 +67,8 @@ private slots:
 
     void on_CheckBox_statechanged(Schedule s, int state);
 
+    void updateTimer();
+
 private:
     Ui::MainWindow *ui;
     std::list<Schedule> & schedulelist;
@@ -78,5 +81,10 @@ private:
     QDate startOfWeek;
     QCalendarWidget *calendar;
     QDate tempdate;
+    QLabel *background;
+    QTimer *timer;
+    QLabel *timerlabel;
+    QImage image;
+    QPainter painter;
 };
 #endif // MAINWINDOW_H

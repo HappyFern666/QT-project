@@ -16,13 +16,14 @@ private:
     QDate Date;
 public:
     Schedule() {}
-    Schedule(const QString& name_, const QString& tag_, const QString & Time_ , const QString & Note_, const QDate & currentDate): TaskName(name_), Tag(tag_), Time(Time_), Content(Note_), Date(currentDate) {}
+    Schedule(const QString& name_, const QString& tag_, const QString & Time_ , const QString & Note_, const QDate & currentDate, int rat): TaskName(name_), Tag(tag_), Time(Time_), Content(Note_), Date(currentDate), Rating(rat) {}
     bool & done();
     QString & GetTaskName();
     QString & GetTag();
     QString & GetTime();
     QString & GetContent();
     QDate & GetDate();
+    int & GetRating();
     bool operator< (const Schedule & b);
     bool operator== (const Schedule b) ;
 };

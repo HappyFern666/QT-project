@@ -34,6 +34,8 @@ private:
     QLineEdit *NoteEdit;
     QGroupBox *groupBox;
     QPushButton *confirmButton;
+    QRadioButton *ImpButton;
+    QRadioButton *UrgButton;
     std::list<Schedule> & schedulelist;
 };
 

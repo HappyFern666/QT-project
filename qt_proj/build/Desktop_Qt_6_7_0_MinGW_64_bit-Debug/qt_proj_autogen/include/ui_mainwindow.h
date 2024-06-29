@@ -14,6 +14,7 @@
 #include <QtWidgets/QCalendarWidget>
 #include <QtWidgets/QFrame>
 #include <QtWidgets/QHeaderView>
+#include <QtWidgets/QLabel>
 #include <QtWidgets/QMainWindow>
 #include <QtWidgets/QMenuBar>
 #include <QtWidgets/QPushButton>
@@ -31,6 +32,8 @@ public:
     QWidget *centralwidget;
     QWidget *verticalLayoutWidget_2;
     QVBoxLayout *verticalLayout_2;
+    QLabel *label_2;
+    QLabel *label;
     QFrame *line_2;
     QToolButton *Add_Schedule;
     QWidget *verticalLayoutWidget;
@@ -54,6 +57,16 @@ public:
         verticalLayout_2 = new QVBoxLayout(verticalLayoutWidget_2);
         verticalLayout_2->setObjectName("verticalLayout_2");
         verticalLayout_2->setContentsMargins(0, 0, 0, 0);
+        label_2 = new QLabel(verticalLayoutWidget_2);
+        label_2->setObjectName("label_2");
+
+        verticalLayout_2->addWidget(label_2);
+
+        label = new QLabel(verticalLayoutWidget_2);
+        label->setObjectName("label");
+
+        verticalLayout_2->addWidget(label);
+
         line_2 = new QFrame(centralwidget);
         line_2->setObjectName("line_2");
         line_2->setGeometry(QRect(340, 110, 41, 411));
@@ -99,6 +112,8 @@ public:
     void retranslateUi(QMainWindow *MainWindow)
     {
         MainWindow->setWindowTitle(QCoreApplication::translate("MainWindow", "MainWindow", nullptr));
+        label_2->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
+        label->setText(QCoreApplication::translate("MainWindow", "TextLabel", nullptr));
         Add_Schedule->setText(QCoreApplication::translate("MainWindow", "Add Schedule", nullptr));
         BackToToday->setText(QCoreApplication::translate("MainWindow", "Back to\n"
 "today", nullptr));

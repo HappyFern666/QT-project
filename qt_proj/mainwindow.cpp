@@ -8,6 +8,7 @@
 #include <QtUiTools/QUiLoader>
 #include <QFile>
 #include <QDate>
+#include <QPixmap>
 
 
 
@@ -17,6 +18,8 @@ MainWindow::MainWindow(std::list<Schedule> & schedulelist, QWidget *parent, QDat
     , schedulelist(schedulelist)
     , currentDate(currentDate_)
     , tempdate(currentDate_)
+    , image("D:\\code\\csh\\qt\\QT-project\\background.jpg")
+    , painter(&image)
 {
     ui->setupUi(this);
     addScheduleWindow = new Add_Schedule(schedulelist,this);
@@ -31,6 +34,19 @@ MainWindow::MainWindow(std::list<Schedule> & schedulelist, QWidget *parent, QDat
     ShowSchedule(tempdate);
     ui->tableWidget->setEditTriggers(QAbstractItemView::NoEditTriggers);
     modify_layout = ui->verticalLayout_2;
+
+    background = ui->label;
+    background->setPixmap(QPixmap::fromImage(image));
+    background->setScaledContents(true);
+    ui->verticalLayout_2->addWidget(background,0,Qt::AlignCenter);
+
+    timer = new QTimer(this);
+    connect(timer, &QTimer::timeout, this, &MainWindow::updateTimer);
+    timer->start(1000);
+    timerlabel = ui->label_2;
+    timerlabel->setAlignment(Qt::AlignCenter);
+    timerlabel->setStyleSheet("font-size: 24pt;");
+    ui->verticalLayout_2->addWidget(timerlabel,0,Qt::AlignCenter); // 将 QLabel 添加到布局中
 }
 
 MainWindow::~MainWindow()
@@ -162,6 +178,12 @@ void MainWindow::ShowSchedule(QDate currentDate) {
 
         row++;
     }
+    ui->tableWidget->show();
+}
+
+void MainWindow::ShowFourQuadrant(QDate tempdate) {
+    ui->tableWidget->hide();
+
 }
 
 void MainWindow::on_BackToToday_clicked()
@@ -185,5 +207,12 @@ void MainWindow::on_CheckBox_statechanged(Schedule s, int state) {
     auto it = std::find(schedulelist.begin(), schedulelist.end(), s); // 开始时指向 list 的开始
     it->done() = (state==Qt::Checked);
     ShowSchedule(tempdate);
+}
+
+void MainWindow::updateTimer()
+{
+    QTime currentTime = QTime::currentTime();
+    QString timeText = currentTime.toString("hh:mm");
+    timerlabel->setText(timeText);
 }
 

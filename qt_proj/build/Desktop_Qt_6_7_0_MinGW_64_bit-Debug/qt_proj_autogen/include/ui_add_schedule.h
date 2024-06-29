@@ -39,12 +39,14 @@ public:
     QLabel *label_3;
     QLineEdit *lineEdit_4;
     QLabel *label_4;
+    QRadioButton *radioButton_5;
+    QRadioButton *radioButton_6;
 
     void setupUi(QDialog *Add_Schedule)
     {
         if (Add_Schedule->objectName().isEmpty())
             Add_Schedule->setObjectName("Add_Schedule");
-        Add_Schedule->resize(391, 346);
+        Add_Schedule->resize(391, 414);
         lineEdit = new QLineEdit(Add_Schedule);
         lineEdit->setObjectName("lineEdit");
         lineEdit->setGeometry(QRect(110, 60, 251, 23));
@@ -78,7 +80,7 @@ public:
 
         confirmButton = new QPushButton(Add_Schedule);
         confirmButton->setObjectName("confirmButton");
-        confirmButton->setGeometry(QRect(290, 310, 80, 24));
+        confirmButton->setGeometry(QRect(290, 370, 80, 24));
         lineEdit_2 = new QLineEdit(Add_Schedule);
         lineEdit_2->setObjectName("lineEdit_2");
         lineEdit_2->setGeometry(QRect(130, 230, 113, 23));
@@ -97,6 +99,12 @@ public:
         label_4 = new QLabel(Add_Schedule);
         label_4->setObjectName("label_4");
         label_4->setGeometry(QRect(30, 280, 54, 16));
+        radioButton_5 = new QRadioButton(Add_Schedule);
+        radioButton_5->setObjectName("radioButton_5");
+        radioButton_5->setGeometry(QRect(40, 330, 97, 22));
+        radioButton_6 = new QRadioButton(Add_Schedule);
+        radioButton_6->setObjectName("radioButton_6");
+        radioButton_6->setGeometry(QRect(170, 330, 97, 22));
 
         retranslateUi(Add_Schedule);
 
@@ -116,6 +124,8 @@ public:
         label_2->setText(QCoreApplication::translate("Add_Schedule", "Planned time:", nullptr));
         label_3->setText(QCoreApplication::translate("Add_Schedule", "Input Tag:", nullptr));
         label_4->setText(QCoreApplication::translate("Add_Schedule", "Notes:", nullptr));
+        radioButton_5->setText(QCoreApplication::translate("Add_Schedule", "Important", nullptr));
+        radioButton_6->setText(QCoreApplication::translate("Add_Schedule", "Urgent", nullptr));
     } // retranslateUi
 
 };

@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>391</width>
-    <height>346</height>
+    <height>414</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -83,7 +83,7 @@
    <property name="geometry">
     <rect>
      <x>290</x>
-     <y>310</y>
+     <y>370</y>
      <width>80</width>
      <height>24</height>
     </rect>
@@ -159,6 +159,32 @@
    </property>
    <property name="text">
     <string>Notes:</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_5">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>330</y>
+     <width>97</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Important</string>
+   </property>
+  </widget>
+  <widget class="QRadioButton" name="radioButton_6">
+   <property name="geometry">
+    <rect>
+     <x>170</x>
+     <y>330</y>
+     <width>97</width>
+     <height>22</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>Urgent</string>
    </property>
   </widget>
  </widget>

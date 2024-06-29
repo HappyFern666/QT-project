@@ -18,6 +18,8 @@ Add_Schedule::Add_Schedule(std::list<Schedule> & schedulelist_, QWidget *parent)
     NoteEdit = ui->lineEdit_4;
     groupBox = ui->groupBox;
     qDebug() << schedulelist.size();
+    ImpButton = ui->radioButton_5;
+    UrgButton = ui->radioButton_6;
     confirmButton = ui->confirmButton;
     connect(ui->confirmButton, &QPushButton::clicked, this, &Add_Schedule::on_confirmButton_clicked);
     ui->label_3->hide();
@@ -76,8 +78,20 @@ void Add_Schedule::on_confirmButton_clicked()
         emit scheduleClosed();
         return;
     }
+    bool imp = ImpButton->isChecked();
+    ImpButton->setChecked(false);
+    bool Urg = UrgButton->isChecked();
+    UrgButton->setChecked(false);
+    int rat = 0;
+    if (imp) {
+        if (Urg) rat = 1;
+        else rat = 2;
+    } else {
+        if (Urg) rat = 3;
+        else rat = 4;
+    }
     QDate d = mw->GetTempDate();
-    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, d);
+    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, d, rat);
     // 将新创建的 Schedule 对象添加到 schedulelist 中
     schedulelist.push_back(schedule);
     ui->label_3->hide();

@@ -37,7 +37,8 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
     disconnect(ui->confirmButton, &QPushButton::clicked, this, &Modify_Schedule::on_modify_confirmButton_clicked);
     connect(ui->confirmButton, &QPushButton::clicked, this, &Modify_Schedule::on_modify_confirmButton_clicked);
 
-    auto removeIter = remove(schedulelist.begin(), schedulelist.end(), s);
+    auto removeIter = std::find(schedulelist.begin(), schedulelist.end(), s);
+    int rat = removeIter->GetRating();
     schedulelist.erase(removeIter, schedulelist.end());
     QString userinput = lineEdit->text();
     QString TimeInput = TimeEdit->text();
@@ -79,7 +80,7 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
         delayButton->setChecked(false);
     }
     qDebug()<< nDate.toString("yyyy-MM-dd");
-    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, nDate);
+    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, nDate, rat);
     // 将新创建的 Schedule 对象添加到 schedulelist 中
     schedulelist.push_back(schedule);
     ui->label_3->hide();

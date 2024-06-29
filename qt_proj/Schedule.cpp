@@ -36,3 +36,7 @@ bool & Schedule::done() {
 bool Schedule::operator== (Schedule b) {
     return TaskName == b.GetTaskName() && Tag == b.GetTag() && Time == b.GetTime();
 }
+
+int & Schedule::GetRating() {
+    return Rating;
+}
