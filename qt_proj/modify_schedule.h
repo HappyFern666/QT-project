@@ -37,6 +37,7 @@ private:
     friend class MainWindow;
     QDate currentDate;
     QRadioButton *delayButton;
+    Schedule s;
 };
 
 #endif // MODIFY_SCHEDULE_H

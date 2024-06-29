@@ -16,7 +16,7 @@ signals:
     void scheduleClosed();
 
 public:
-    int row;
+
     explicit Delete_Schedule(std::list<Schedule> & schedulelist, QWidget *parent = nullptr);
     ~Delete_Schedule();
 
@@ -30,6 +30,7 @@ private:
     QPushButton *del_confirmButton;
     QPushButton *del_concelButton;
     std::list<Schedule> & schedulelist;
+    Schedule s;
     friend class MainWindow;
 };
 

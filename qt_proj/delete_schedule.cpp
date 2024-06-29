@@ -25,19 +25,15 @@ Delete_Schedule::~Delete_Schedule()
 
 void Delete_Schedule::on_delete_confirmButton_clicked()
 {
-    MainWindow *mw = qobject_cast<MainWindow *>(parentWidget());
+
     /*非常抱歉，不加这愚蠢的两行，on_confirmButton_clicked就会被完整执行两次。也不知道为什么。*/
     disconnect(ui->del_confirmButton, &QPushButton::clicked, this, &Delete_Schedule::on_delete_confirmButton_clicked);
     connect(ui->del_confirmButton, &QPushButton::clicked, this, &Delete_Schedule::on_delete_confirmButton_clicked);
-    auto it = schedulelist.begin(); // 开始时指向 list 的开始
-    std::advance(it, row); // 移动迭代器到指定的 row 位置
-
-    // 从 schedulelist 中删除指定行的日程
-    schedulelist.erase(it);
-
+    auto removeIter = remove(schedulelist.begin(), schedulelist.end(), s);
+    schedulelist.erase(removeIter, schedulelist.end());
     close();
     emit scheduleClosed();
-    mw->ShowSchedule(mw->GetTempDate());
+
 }
 
 

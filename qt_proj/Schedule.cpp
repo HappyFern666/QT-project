@@ -32,3 +32,7 @@ bool Schedule::operator< (const Schedule & b) {
 bool & Schedule::done() {
     return Done;
 }
+
+bool Schedule::operator== (Schedule b) {
+    return TaskName == b.GetTaskName() && Tag == b.GetTag() && Time == b.GetTime();
+}

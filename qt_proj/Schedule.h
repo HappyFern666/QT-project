@@ -15,6 +15,7 @@ private:
     QString Content;
     QDate Date;
 public:
+    Schedule() {}
     Schedule(const QString& name_, const QString& tag_, const QString & Time_ , const QString & Note_, const QDate & currentDate): TaskName(name_), Tag(tag_), Time(Time_), Content(Note_), Date(currentDate) {}
     bool & done();
     QString & GetTaskName();
@@ -23,6 +24,7 @@ public:
     QString & GetContent();
     QDate & GetDate();
     bool operator< (const Schedule & b);
+    bool operator== (const Schedule b) ;
 };
 
 #endif // SCHEDULE_H

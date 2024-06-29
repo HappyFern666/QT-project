@@ -36,11 +36,9 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
     /*非常抱歉，不加这愚蠢的两行，on_confirmButton_clicked就会被完整执行两次。也不知道为什么。*/
     disconnect(ui->confirmButton, &QPushButton::clicked, this, &Modify_Schedule::on_modify_confirmButton_clicked);
     connect(ui->confirmButton, &QPushButton::clicked, this, &Modify_Schedule::on_modify_confirmButton_clicked);
-    auto it = schedulelist.begin(); // 开始时指向 list 的开始
-    std::advance(it, row); // 移动迭代器到指定的 row 位置
 
-    // 从 schedulelist 中删除指定行的日程
-    schedulelist.erase(it);
+    auto removeIter = remove(schedulelist.begin(), schedulelist.end(), s);
+    schedulelist.erase(removeIter, schedulelist.end());
     QString userinput = lineEdit->text();
     QString TimeInput = TimeEdit->text();
     QString NoteInput = NoteEdit->text();
@@ -92,8 +90,6 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
     NoteEdit->clear();
     close();
     emit scheduleClosed();
-    MainWindow *mw = qobject_cast<MainWindow *>(parentWidget());
-    mw->ShowSchedule(mw->GetTempDate());
 }
 
 

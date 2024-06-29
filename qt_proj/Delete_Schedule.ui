@@ -29,7 +29,7 @@
   <widget class="QPushButton" name="del_concelButton">
    <property name="geometry">
     <rect>
-     <x>180</x>
+     <x>190</x>
      <y>100</y>
      <width>80</width>
      <height>18</height>
@@ -42,9 +42,9 @@
   <widget class="QTextBrowser" name="textBrowser">
    <property name="geometry">
     <rect>
-     <x>40</x>
+     <x>30</x>
      <y>40</y>
-     <width>221</width>
+     <width>241</width>
      <height>41</height>
     </rect>
    </property>

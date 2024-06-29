@@ -57,14 +57,14 @@ private slots:
 
         ShowSchedule(tempdate);
     }
-    void on_Delete_Schedule_clicked(int row);
-    void on_Modify_Schedule_clicked(int row);
+    void on_Delete_Schedule_clicked(Schedule sd);
+    void on_Modify_Schedule_clicked(Schedule sd);
 
     void on_BackToToday_clicked();
 
     void onCalendarSelectionChanged();
 
-    void on_CheckBox_statechanged(int row);
+    void on_CheckBox_statechanged(Schedule s, int state);
 
 private:
     Ui::MainWindow *ui;

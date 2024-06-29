@@ -44,11 +44,14 @@ constexpr auto qt_meta_stringdata_CLASSMainWindowENDCLASS = QtMocHelpers::string
     "del_handleScheduleClosed",
     "modify_handleScheduleClosed",
     "on_Delete_Schedule_clicked",
-    "row",
+    "Schedule",
+    "sd",
     "on_Modify_Schedule_clicked",
     "on_BackToToday_clicked",
     "onCalendarSelectionChanged",
-    "on_CheckBox_statechanged"
+    "on_CheckBox_statechanged",
+    "s",
+    "state"
 );
 #else  // !QT_MOC_HAS_STRINGDATA
 #error "qtmochelpers.h not found or too old."
@@ -74,21 +77,21 @@ Q_CONSTINIT static const uint qt_meta_data_CLASSMainWindowENDCLASS[] = {
        4,    0,   70,    2, 0x08,    3 /* Private */,
        5,    0,   71,    2, 0x08,    4 /* Private */,
        6,    1,   72,    2, 0x08,    5 /* Private */,
-       8,    1,   75,    2, 0x08,    7 /* Private */,
-       9,    0,   78,    2, 0x08,    9 /* Private */,
-      10,    0,   79,    2, 0x08,   10 /* Private */,
-      11,    1,   80,    2, 0x08,   11 /* Private */,
+       9,    1,   75,    2, 0x08,    7 /* Private */,
+      10,    0,   78,    2, 0x08,    9 /* Private */,
+      11,    0,   79,    2, 0x08,   10 /* Private */,
+      12,    2,   80,    2, 0x08,   11 /* Private */,
 
  // slots: parameters
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    7,
-    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, 0x80000000 | 7,    8,
+    QMetaType::Void, 0x80000000 | 7,    8,
     QMetaType::Void,
     QMetaType::Void,
-    QMetaType::Void, QMetaType::Int,    7,
+    QMetaType::Void, 0x80000000 | 7, QMetaType::Int,   13,   14,
 
        0        // eod
 };
@@ -112,16 +115,17 @@ Q_CONSTINIT const QMetaObject MainWindow::staticMetaObject = { {
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_Delete_Schedule_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Schedule, std::false_type>,
         // method 'on_Modify_Schedule_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
-        QtPrivate::TypeAndForceComplete<int, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Schedule, std::false_type>,
         // method 'on_BackToToday_clicked'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'onCalendarSelectionChanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
         // method 'on_CheckBox_statechanged'
         QtPrivate::TypeAndForceComplete<void, std::false_type>,
+        QtPrivate::TypeAndForceComplete<Schedule, std::false_type>,
         QtPrivate::TypeAndForceComplete<int, std::false_type>
     >,
     nullptr
@@ -137,11 +141,11 @@ void MainWindow::qt_static_metacall(QObject *_o, QMetaObject::Call _c, int _id, 
         case 1: _t->handleScheduleClosed(); break;
         case 2: _t->del_handleScheduleClosed(); break;
         case 3: _t->modify_handleScheduleClosed(); break;
-        case 4: _t->on_Delete_Schedule_clicked((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
-        case 5: _t->on_Modify_Schedule_clicked((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 4: _t->on_Delete_Schedule_clicked((*reinterpret_cast< std::add_pointer_t<Schedule>>(_a[1]))); break;
+        case 5: _t->on_Modify_Schedule_clicked((*reinterpret_cast< std::add_pointer_t<Schedule>>(_a[1]))); break;
         case 6: _t->on_BackToToday_clicked(); break;
         case 7: _t->onCalendarSelectionChanged(); break;
-        case 8: _t->on_CheckBox_statechanged((*reinterpret_cast< std::add_pointer_t<int>>(_a[1]))); break;
+        case 8: _t->on_CheckBox_statechanged((*reinterpret_cast< std::add_pointer_t<Schedule>>(_a[1])),(*reinterpret_cast< std::add_pointer_t<int>>(_a[2]))); break;
         default: ;
         }
     }

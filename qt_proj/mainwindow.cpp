@@ -48,35 +48,32 @@ void MainWindow::on_Add_Schedule_clicked()
 }
 
 
-void MainWindow::on_Delete_Schedule_clicked(int row)
+void MainWindow::on_Delete_Schedule_clicked(Schedule sd)
 {
     qDebug() << "Delete Schedule opened\n";
     qDebug() << schedulelist.size();
-    deleteScheduleWindow->row=row;
+    deleteScheduleWindow->s = sd;
     deleteScheduleWindow->show();
     connect(deleteScheduleWindow, &Delete_Schedule::scheduleClosed, this, &MainWindow::del_handleScheduleClosed);
 }
-void MainWindow::on_Modify_Schedule_clicked(int row){
+void MainWindow::on_Modify_Schedule_clicked(Schedule sd){
 
     modify_layout->addWidget(modifyScheduleWindow);
 
     qDebug() << "Modify Schedule opened\n";
     qDebug() << schedulelist.size();
-    modifyScheduleWindow->row=row;
-    auto it = schedulelist.begin(); // 开始时指向 list 的开始
-
-    std::advance(it, row);
-    modifyScheduleWindow->lineEdit->setText(it->GetTaskName());
-    modifyScheduleWindow->NoteEdit->setText(it->GetContent());
-    modifyScheduleWindow->TagEdit->setText(it->GetTag());
-    modifyScheduleWindow->TimeEdit->setText(it->GetTime());
+    modifyScheduleWindow->s = sd;
+    modifyScheduleWindow->lineEdit->setText(sd.GetTaskName());
+    modifyScheduleWindow->NoteEdit->setText(sd.GetContent());
+    modifyScheduleWindow->TagEdit->setText(sd.GetTag());
+    modifyScheduleWindow->TimeEdit->setText(sd.GetTime());
     QHBoxLayout *layout = dynamic_cast<QHBoxLayout*>(modifyScheduleWindow->groupBox->layout());
     int flag=0;
-    if(it->GetTag()=="Shopping"||it->GetTag()=="Workout"||it->GetTag()=="Study"){
+    if(sd.GetTag()=="Shopping"||sd.GetTag()=="Workout"||sd.GetTag()=="Study"){
         for (int i = 0; i < layout->count(); ++i) {
             QRadioButton *radioButton = qobject_cast<QRadioButton*>(layout->itemAt(i)->widget());
             if (radioButton) {
-                    if (radioButton->text()==it->GetTag())
+                    if (radioButton->text()==sd.GetTag())
                         radioButton->setChecked(1);
             }
         }
@@ -87,7 +84,7 @@ void MainWindow::on_Modify_Schedule_clicked(int row){
             if (radioButton) {
                 if (radioButton->text()==QString("Else"))
                     radioButton->setChecked(1);
-                modifyScheduleWindow->TagEdit->setText(it->GetTag());
+                modifyScheduleWindow->TagEdit->setText(sd.GetTag());
                 modifyScheduleWindow->TagEdit->show();
             }
         }
@@ -110,15 +107,18 @@ void MainWindow::ShowSchedule(QDate currentDate) {
     ui->tableWidget->horizontalHeader()->hide();
     // 逐个添加 schedulelist 中的每个 Schedule 条目到表格中
     int row = 0;
-    for (auto & schedule : DateList) {
+    for (auto schedule : DateList) {
         // 在表格中插入一行
         ui->tableWidget->insertRow(row);
         QCheckBox *done = new QCheckBox();
         ui->tableWidget->setCellWidget(row,0,done);
         ui->tableWidget->setColumnWidth(0, 50); // 设置第一列宽度为50像素
-        connect(done, &QCheckBox::stateChanged, [this,row] () {
-            on_CheckBox_statechanged(row);
-        });
+        if (schedule.done())
+            done->setChecked(true);
+        else
+            connect(done, &QCheckBox::stateChanged, [this,schedule] (int state) {
+                on_CheckBox_statechanged(schedule, state);
+            });
         // 创建单元格并设置内容
         QTableWidgetItem *taskItem = new QTableWidgetItem(schedule.GetTaskName());
         taskItem->setTextAlignment(Qt::AlignVCenter);
@@ -128,13 +128,13 @@ void MainWindow::ShowSchedule(QDate currentDate) {
         TimeItem->setTextAlignment(Qt::AlignVCenter);
         ui->tableWidget->setItem(row, 2, TimeItem);
         QPushButton *modifyButton = new QPushButton("Modify",this);
-        connect(modifyButton, &QPushButton::clicked,[this,row](){
-            on_Modify_Schedule_clicked(row);
+        connect(modifyButton, &QPushButton::clicked,[this,schedule](){
+            on_Modify_Schedule_clicked(schedule);
         });
         ui->tableWidget->setCellWidget(row,3,modifyButton);
         QPushButton *deleteButton = new QPushButton("Delete", this); // 创建删除按钮
-        connect(deleteButton, &QPushButton::clicked, [this, row]() {
-            on_Delete_Schedule_clicked(row); // 当按钮被点击时，调用删除日程的函数
+        connect(deleteButton, &QPushButton::clicked, [this, schedule]() {
+            on_Delete_Schedule_clicked(schedule); // 当按钮被点击时，调用删除日程的函数
         });
         ui->tableWidget->setCellWidget(row, 4, deleteButton);
         if (schedule.done() == true) {
@@ -181,11 +181,9 @@ QDate MainWindow::GetTempDate() {
     return tempdate;
 }
 
-void MainWindow::on_CheckBox_statechanged(int row) {
-
-    auto it = schedulelist.begin(); // 开始时指向 list 的开始
-    std::advance(it, row);
-    it->done() = true;
+void MainWindow::on_CheckBox_statechanged(Schedule s, int state) {
+    auto it = std::find(schedulelist.begin(), schedulelist.end(), s); // 开始时指向 list 的开始
+    it->done() = (state==Qt::Checked);
     ShowSchedule(tempdate);
 }
 
