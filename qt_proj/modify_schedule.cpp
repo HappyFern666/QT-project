@@ -37,8 +37,9 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
     disconnect(ui->confirmButton, &QPushButton::clicked, this, &Modify_Schedule::on_modify_confirmButton_clicked);
     connect(ui->confirmButton, &QPushButton::clicked, this, &Modify_Schedule::on_modify_confirmButton_clicked);
 
-    auto removeIter = std::find(schedulelist.begin(), schedulelist.end(), s);
+    auto removeIter = remove(schedulelist.begin(), schedulelist.end(), s);
     int rat = removeIter->GetRating();
+    QDate nDate = removeIter->GetDate();
     schedulelist.erase(removeIter, schedulelist.end());
     QString userinput = lineEdit->text();
     QString TimeInput = TimeEdit->text();
@@ -48,9 +49,9 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
     // 获取 groupBox 的布局管理器
     QHBoxLayout *layout = dynamic_cast<QHBoxLayout*>(groupBox->layout());
 
+    qDebug() << layout;
     // 检查布局管理器是否存在
     if (layout) {
-
         // 遍历布局管理器中的控件，查找 RadioButton
         for (int i = 0; i < layout->count(); ++i) {
             QRadioButton *radioButton = qobject_cast<QRadioButton*>(layout->itemAt(i)->widget());
@@ -72,11 +73,11 @@ void Modify_Schedule::on_modify_confirmButton_clicked()
     if (selectedOption.isEmpty()) {
         QMessageBox::warning(this, "Warning", "Please Select Tag");
     }
-    QDate nDate = currentDate;
     qDebug() << nDate.toString("yyyy-MM-dd");
     if (delayButton->isChecked()) {
         qDebug() << "has delayed";
-        nDate = currentDate.addDays(1);
+        nDate = nDate.addDays(1);
+        qDebug() << " to "<< nDate;
         delayButton->setChecked(false);
     }
     qDebug()<< nDate.toString("yyyy-MM-dd");

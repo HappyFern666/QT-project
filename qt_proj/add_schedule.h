@@ -29,7 +29,8 @@ private slots:
 private:
     Ui::Add_Schedule *ui;
     QLineEdit *lineEdit;
-    QLineEdit *TimeEdit;
+    QLineEdit *TimeEdit1;
+    QLineEdit *TimeEdit2;
     QLineEdit *TagEdit;
     QLineEdit *NoteEdit;
     QGroupBox *groupBox;

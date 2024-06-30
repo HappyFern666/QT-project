@@ -41,6 +41,8 @@ public:
     QLabel *label_4;
     QRadioButton *radioButton_5;
     QRadioButton *radioButton_6;
+    QLabel *label_5;
+    QLineEdit *lineEdit_5;
 
     void setupUi(QDialog *Add_Schedule)
     {
@@ -83,7 +85,7 @@ public:
         confirmButton->setGeometry(QRect(290, 370, 80, 24));
         lineEdit_2 = new QLineEdit(Add_Schedule);
         lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(130, 230, 113, 23));
+        lineEdit_2->setGeometry(QRect(130, 230, 41, 23));
         label_2 = new QLabel(Add_Schedule);
         label_2->setObjectName("label_2");
         label_2->setGeometry(QRect(30, 230, 91, 16));
@@ -105,6 +107,12 @@ public:
         radioButton_6 = new QRadioButton(Add_Schedule);
         radioButton_6->setObjectName("radioButton_6");
         radioButton_6->setGeometry(QRect(170, 330, 97, 22));
+        label_5 = new QLabel(Add_Schedule);
+        label_5->setObjectName("label_5");
+        label_5->setGeometry(QRect(185, 230, 16, 16));
+        lineEdit_5 = new QLineEdit(Add_Schedule);
+        lineEdit_5->setObjectName("lineEdit_5");
+        lineEdit_5->setGeometry(QRect(200, 230, 41, 23));
 
         retranslateUi(Add_Schedule);
 
@@ -126,6 +134,7 @@ public:
         label_4->setText(QCoreApplication::translate("Add_Schedule", "Notes:", nullptr));
         radioButton_5->setText(QCoreApplication::translate("Add_Schedule", "Important", nullptr));
         radioButton_6->setText(QCoreApplication::translate("Add_Schedule", "Urgent", nullptr));
+        label_5->setText(QCoreApplication::translate("Add_Schedule", ":", nullptr));
     } // retranslateUi
 
 };

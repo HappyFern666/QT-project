@@ -11,6 +11,6 @@ int main(int argc, char *argv[])
     User Current_User;
     MainWindow w(Current_User.getTaskList());
     w.show();
-
+    w.ReadFromFile();
     return a.exec();
 }

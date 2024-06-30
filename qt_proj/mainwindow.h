@@ -23,6 +23,8 @@ public:
     ~MainWindow();
     void ShowSchedule(QDate currentDate);
     void ShowFourQuadrant(QDate currentDate);
+    void ReadFromFile();
+    void WriteInFile();
     QDate GetTempDate();
 
 private slots:
@@ -39,12 +41,10 @@ private slots:
 
     void on_CheckBox_statechanged(Schedule s, int state);
 
-    void updateTimer();
     void on_Sort_with_Time_clicked();
     void on_Sort_with_Rating_clicked();
 
-
-
+    void updateTimer();
 
 private:
 
@@ -54,8 +54,6 @@ private:
     Add_Schedule *addScheduleWindow;
     Delete_Schedule *deleteScheduleWindow;
     Modify_Schedule *modifyScheduleWindow;
-
-
 
     QDate currentDate;
 

@@ -13,7 +13,8 @@ Add_Schedule::Add_Schedule(std::list<Schedule> & schedulelist_, QWidget *parent)
 {
     ui->setupUi(this);
     lineEdit = ui->lineEdit;
-    TimeEdit = ui->lineEdit_2;
+    TimeEdit1 = ui->lineEdit_2;
+    TimeEdit2 = ui->lineEdit_5;
     TagEdit = ui->lineEdit_3;
     NoteEdit = ui->lineEdit_4;
     groupBox = ui->groupBox;
@@ -41,7 +42,8 @@ void Add_Schedule::on_confirmButton_clicked()
     connect(ui->confirmButton, &QPushButton::clicked, this, &Add_Schedule::on_confirmButton_clicked);
     MainWindow *mw = qobject_cast<MainWindow *>(parentWidget());
     QString userinput = lineEdit->text();
-    QString TimeInput = TimeEdit->text();
+    QString TimeInput1 = TimeEdit1->text();
+    QString TimeInput2 = TimeEdit2->text();
     QString NoteInput = NoteEdit->text();
     QString selectedOption;
     // 检查每个 RadioButton 是否被选中，并确定用户选择了哪个选项
@@ -67,13 +69,39 @@ void Add_Schedule::on_confirmButton_clicked()
         }
     }
     if (userinput.isEmpty()) {
-        QMessageBox::warning(this, "Warning", "Please input Task Name");
+        QMessageBox::warning(this, "Warning", "Please Input Task Name");
         close();
         emit scheduleClosed();
         return;
     }
     if (selectedOption.isEmpty()) {
         QMessageBox::warning(this, "Warning", "Please Select Tag");
+        close();
+        emit scheduleClosed();
+        return;
+    }
+    if (TimeInput1.length() > 2 or TimeInput2.length() > 2) {
+        QMessageBox::warning(this, "Warning", "Please Input the Correct Time");
+        close();
+        emit scheduleClosed();
+        return;
+    }
+    if (TimeInput1.length() == 1) TimeInput1 = '0' + TimeInput1;
+    if (TimeInput2.length() == 1) TimeInput2 = '0' + TimeInput2;
+    if (TimeInput1[0] < '0' || TimeInput1[0] > '9' || TimeInput1[1] < '0' || TimeInput1[1] > '9'){
+        QMessageBox::warning(this, "Warning", "Please Input the Correct Time");
+        close();
+        emit scheduleClosed();
+        return;
+    }
+    if (TimeInput2[0] < '0' || TimeInput2[0] > '9' || TimeInput2[1] < '0' || TimeInput2[1] > '9'){
+        QMessageBox::warning(this, "Warning", "Please Input the Correct Time");
+        close();
+        emit scheduleClosed();
+        return;
+    }
+    if (TimeInput1.toInt() > 23 || TimeInput2.toInt() > 59) {
+        QMessageBox::warning(this, "Warning", "Please Input the Correct Time");
         close();
         emit scheduleClosed();
         return;
@@ -91,8 +119,8 @@ void Add_Schedule::on_confirmButton_clicked()
         else rat = 4;
     }
     QDate d = mw->GetTempDate();
-    Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, d, rat);
-
+    Schedule schedule(userinput, selectedOption, TimeInput1+':'+TimeInput2, NoteInput, d, rat);
+    // 将新创建的 Schedule 对象添加到 schedulelist 中
     auto it = std::find(schedulelist.begin(), schedulelist.end(), schedule);
 
     // 检查元素是否被找到
@@ -102,17 +130,16 @@ void Add_Schedule::on_confirmButton_clicked()
         emit scheduleClosed();
         return;
     }
-    // 将新创建的 Schedule 对象添加到 schedulelist 中
     schedulelist.push_back(schedule);
     ui->label_3->hide();
     TagEdit->hide();
     TagEdit->clear();
     lineEdit->clear();
-    TimeEdit->clear();
+    TimeEdit1->clear();
+    TimeEdit2->clear();
     NoteEdit->clear();
     close();
     emit scheduleClosed();
-    mw->ShowSchedule(d);
 }
 
 

@@ -113,30 +113,36 @@
 today</string>
     </property>
    </widget>
-   <widget class="QPushButton" name="Sort_with_Time">
+   <widget class="QToolButton" name="Sort_with_Rating">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
     <property name="geometry">
      <rect>
       <x>40</x>
       <y>490</y>
-      <width>80</width>
-      <height>18</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Sort with Time</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="Sort_with_Rating">
-    <property name="geometry">
-     <rect>
-      <x>40</x>
-      <y>490</y>
-      <width>80</width>
-      <height>18</height>
+      <width>96</width>
+      <height>23</height>
      </rect>
     </property>
     <property name="text">
      <string>Sort with Rating</string>
+    </property>
+   </widget>
+   <widget class="QToolButton" name="Sort_with_Time">
+    <property name="enabled">
+     <bool>true</bool>
+    </property>
+    <property name="geometry">
+     <rect>
+      <x>40</x>
+      <y>490</y>
+      <width>96</width>
+      <height>23</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Sort with Time</string>
     </property>
    </widget>
   </widget>

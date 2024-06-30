@@ -6,13 +6,14 @@
 #include "modify_schedule.h"
 #include <QtWidgets>
 #include <QtUiTools/QUiLoader>
+#include <QCoreApplication>
 #include <QFile>
+#include <QTextStream>
 #include <QDate>
 #include <QPixmap>
+#include <QDebug>
+
 bool (*compareFunc)(const Schedule&, const Schedule&) = Schedule::Compare1;
-
-
-
 
 MainWindow::MainWindow(std::list<Schedule> & schedulelist, QWidget *parent, QDate currentDate_)
     : QMainWindow(parent)
@@ -20,10 +21,11 @@ MainWindow::MainWindow(std::list<Schedule> & schedulelist, QWidget *parent, QDat
     , schedulelist(schedulelist)
     , currentDate(currentDate_)
     , tempdate(currentDate_)
-    , image("D:\\code\\csh\\qt\\QT-project\\background.jpg")
+    , image("..\\..\\background.jpg")
 {
     ui->setupUi(this);
     ui ->Sort_with_Time->hide();
+    this->setWindowIcon(QIcon(":/img/icon.png"));
     addScheduleWindow = new Add_Schedule(schedulelist,this);
     deleteScheduleWindow = new Delete_Schedule(schedulelist,this);
     modifyScheduleWindow = new Modify_Schedule(schedulelist,this);
@@ -69,6 +71,7 @@ void MainWindow::on_Sort_with_Rating_clicked(){
     ui->Sort_with_Time->show();
     ShowSchedule(tempdate);
 }
+
 
 void MainWindow::on_Add_Schedule_clicked()
 {
@@ -187,6 +190,9 @@ void MainWindow::ShowSchedule(QDate currentDate) {
             font.setStrikeOut(true); // 设置字体为被划掉效果
             taskItem->setFont(font);
             TimeItem->setFont(font);
+            modifyButton->setFont(font);
+            done->setEnabled(false);
+            modifyButton->setEnabled(false);
         } else {
             if (schedule.GetTag() == "Study") {
                 QColor skyblue(135, 206, 235);
@@ -214,6 +220,71 @@ void MainWindow::ShowFourQuadrant(QDate tempdate) {
 
 }
 
+void MainWindow::ReadFromFile() {
+    std::vector<QStringList> temp;
+    QString path = "..\\..\\record\\record.txt";
+    QFile qfs(path);
+    if (qfs.exists()){
+        if (!qfs.open(QIODevice::ReadOnly | QIODevice::Text)) {
+            qWarning() << "Failed to open file:" << path;
+        }
+        QTextStream in(&qfs);
+        int err = 0;
+        while (!in.atEnd()) {
+            QString line = in.readLine(); // 读取一行
+            static QRegularExpression re("\\s+");
+            QStringList elements = line.split(re); // 按空白字符分割
+            qDebug() << elements;
+            if (elements.size() != 7) {
+                err = 1;
+                break;
+            }
+            temp.push_back(elements);
+        }
+        if (!err){
+            for (int i = 0; i < temp.size(); i++){
+                bool done = temp[i][0].toInt();
+                QString userinput = temp[i][1];
+                QString selectedOption = temp[i][2];
+                QString TimeInput = temp[i][3];
+                QString NoteInput = temp[i][4] == "#None"? "" : temp[i][4];
+                QDate d = QDate::fromString(temp[i][5], "yyyy-MM-dd");
+                int rat = temp[i][6].toInt();
+                Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, d, rat);
+                schedule.done() = done;
+                schedulelist.push_back(schedule);
+            }
+        }
+    }
+    qfs.close();
+    ShowSchedule(currentDate);
+}
+
+void MainWindow::WriteInFile() {
+    QString path = "..\\..\\record\\record.txt";
+    QFile qfs(path);
+
+    if (!qfs.open(QIODevice::WriteOnly | QIODevice::Text)) {
+        qDebug() << "无法打开文件";
+    }
+
+    QTextStream out(&qfs);
+
+    // 创建一些要写入文件的元素
+    for(Schedule &element: schedulelist) {
+        QString Done = QString::number(element.done());
+        QString TaskName = element.GetTaskName();
+        QString Tag = element.GetTag();
+        QString Time = element.GetTime();
+        QString Content = element.GetContent().isEmpty() ? "#None" : element.GetContent();
+        QString Date = element.GetDate().toString("yyyy-MM-dd");
+        QString Rate = QString::number(element.GetRating());
+        QStringList elements  = QStringList() << Done << TaskName << Tag << Time << Content << Date << Rate;
+        out << elements.join(" ") << "\n";
+    }
+    qfs.close();
+}
+
 void MainWindow::on_BackToToday_clicked()
 {
     calendar->setSelectedDate(QDate::currentDate());
@@ -234,6 +305,7 @@ void MainWindow::on_CheckBox_statechanged(Schedule s, int state) {
     auto it = std::find(schedulelist.begin(), schedulelist.end(), s); // 开始时指向 list 的开始
     it->done() = (state==Qt::Checked);
     ShowSchedule(tempdate);
+    WriteInFile();
 }
 
 void MainWindow::updateTimer()
@@ -249,7 +321,9 @@ void MainWindow::del_handleScheduleClosed(){
     for (auto i = schedulelist.begin(); i!=schedulelist.end(); ++i) {
         qDebug() << "Schedule Name: " << i->GetTaskName() << "Schedule Tag: " << i->GetTag();
         qDebug() << "Schedule Time: " << i->GetTime() << "Schedule Content: " << i->GetContent();
+        qDebug() << "Schedule Day: " << i->GetDate().toString();
     }
+    WriteInFile();
     ShowSchedule(tempdate);
 }
 
@@ -261,6 +335,7 @@ void MainWindow::handleScheduleClosed() {
         qDebug() << "Schedule Time: " << i->GetTime() << "Schedule Content: " << i->GetContent();
         qDebug() << "Schedule Day: " << i->GetDate().toString();
     }
+    WriteInFile();
     ShowSchedule(tempdate);
 }
 
@@ -271,9 +346,11 @@ void MainWindow::modify_handleScheduleClosed(){
     for (auto i = schedulelist.begin(); i!=schedulelist.end(); ++i) {
         qDebug() << "Schedule Name: " << i->GetTaskName() << "Schedule Tag: " << i->GetTag();
         qDebug() << "Schedule Time: " << i->GetTime() << "Schedule Content: " << i->GetContent();
+        qDebug() << "Schedule Day: " << i->GetDate().toString();
     }
     ui->label->show();
     ui->label_2->show();
+    WriteInFile();
     ShowSchedule(tempdate);
 }
 

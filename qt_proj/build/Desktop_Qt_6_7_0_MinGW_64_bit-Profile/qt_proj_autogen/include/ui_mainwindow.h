@@ -38,8 +38,8 @@ public:
     QVBoxLayout *verticalLayout;
     QCalendarWidget *calendarWidget;
     QPushButton *BackToToday;
-    QPushButton *Sort_with_Time;
-    QPushButton *Sort_with_Rating;
+    QToolButton *Sort_with_Rating;
+    QToolButton *Sort_with_Time;
     QMenuBar *menubar;
     QStatusBar *statusbar;
 
@@ -89,12 +89,14 @@ public:
         BackToToday = new QPushButton(centralwidget);
         BackToToday->setObjectName("BackToToday");
         BackToToday->setGeometry(QRect(330, 40, 51, 51));
-        Sort_with_Time = new QPushButton(centralwidget);
-        Sort_with_Time->setObjectName("Sort_with_Time");
-        Sort_with_Time->setGeometry(QRect(40, 490, 80, 18));
-        Sort_with_Rating = new QPushButton(centralwidget);
+        Sort_with_Rating = new QToolButton(centralwidget);
         Sort_with_Rating->setObjectName("Sort_with_Rating");
-        Sort_with_Rating->setGeometry(QRect(40, 490, 80, 18));
+        Sort_with_Rating->setEnabled(true);
+        Sort_with_Rating->setGeometry(QRect(40, 490, 96, 23));
+        Sort_with_Time = new QToolButton(centralwidget);
+        Sort_with_Time->setObjectName("Sort_with_Time");
+        Sort_with_Time->setEnabled(true);
+        Sort_with_Time->setGeometry(QRect(40, 490, 96, 23));
         MainWindow->setCentralWidget(centralwidget);
         menubar = new QMenuBar(MainWindow);
         menubar->setObjectName("menubar");
@@ -117,8 +119,8 @@ public:
         Add_Schedule->setText(QCoreApplication::translate("MainWindow", "Add Schedule", nullptr));
         BackToToday->setText(QCoreApplication::translate("MainWindow", "Back to\n"
 "today", nullptr));
-        Sort_with_Time->setText(QCoreApplication::translate("MainWindow", "Sort with Time", nullptr));
         Sort_with_Rating->setText(QCoreApplication::translate("MainWindow", "Sort with Rating", nullptr));
+        Sort_with_Time->setText(QCoreApplication::translate("MainWindow", "Sort with Time", nullptr));
     } // retranslateUi
 
 };

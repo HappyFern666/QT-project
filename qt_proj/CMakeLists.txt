@@ -36,6 +36,9 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         Delete_Schedule.ui
         modify_schedule.h modify_schedule.cpp
         Modify_schedule.ui
+        ./background.jpg
+        rcs.qrc
+
 
 
     )
