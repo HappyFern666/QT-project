@@ -93,6 +93,15 @@ void Add_Schedule::on_confirmButton_clicked()
     QDate d = mw->GetTempDate();
     Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, d, rat);
     // 将新创建的 Schedule 对象添加到 schedulelist 中
+    auto it = std::find(schedulelist.begin(), schedulelist.end(), schedule);
+
+    // 检查元素是否被找到
+    if (it != schedulelist.end()) {
+        QMessageBox::warning(this, "Warning", "The task has been added to the list");
+        close();
+        emit scheduleClosed();
+        return;
+    }
     schedulelist.push_back(schedule);
     ui->label_3->hide();
     TagEdit->hide();
