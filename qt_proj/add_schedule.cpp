@@ -92,7 +92,7 @@ void Add_Schedule::on_confirmButton_clicked()
     }
     QDate d = mw->GetTempDate();
     Schedule schedule(userinput, selectedOption, TimeInput, NoteInput, d, rat);
-    // 将新创建的 Schedule 对象添加到 schedulelist 中
+
     auto it = std::find(schedulelist.begin(), schedulelist.end(), schedule);
 
     // 检查元素是否被找到
@@ -102,6 +102,7 @@ void Add_Schedule::on_confirmButton_clicked()
         emit scheduleClosed();
         return;
     }
+    // 将新创建的 Schedule 对象添加到 schedulelist 中
     schedulelist.push_back(schedule);
     ui->label_3->hide();
     TagEdit->hide();

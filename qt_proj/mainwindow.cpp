@@ -9,6 +9,8 @@
 #include <QFile>
 #include <QDate>
 #include <QPixmap>
+bool (*compareFunc)(const Schedule&, const Schedule&) = Schedule::Compare1;
+
 
 
 
@@ -21,6 +23,7 @@ MainWindow::MainWindow(std::list<Schedule> & schedulelist, QWidget *parent, QDat
     , image("D:\\code\\csh\\qt\\QT-project\\background.jpg")
 {
     ui->setupUi(this);
+    ui ->Sort_with_Time->hide();
     addScheduleWindow = new Add_Schedule(schedulelist,this);
     deleteScheduleWindow = new Delete_Schedule(schedulelist,this);
     modifyScheduleWindow = new Modify_Schedule(schedulelist,this);
@@ -53,6 +56,19 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+void MainWindow::on_Sort_with_Time_clicked(){
+    compareFunc =Schedule::Compare1;
+    ui->Sort_with_Time->hide();
+    ui->Sort_with_Rating->show();
+    ShowSchedule(tempdate);
+}
+
+void MainWindow::on_Sort_with_Rating_clicked(){
+    compareFunc =Schedule::Compare2;
+    ui->Sort_with_Rating->hide();
+    ui->Sort_with_Time->show();
+    ShowSchedule(tempdate);
+}
 
 void MainWindow::on_Add_Schedule_clicked()
 {
@@ -115,7 +131,7 @@ void MainWindow::ShowSchedule(QDate currentDate) {
     for (auto s = schedulelist.begin(); s != schedulelist.end(); ++s)
         if (s->GetDate() == currentDate)
             DateList.push_back(*s);
-    DateList.sort();
+    DateList.sort(compareFunc);
     if (ui->verticalLayout) {
         while (QLayoutItem *item = ui->verticalLayout->takeAt(0)) {  // 从布局中逐个移除部件
             QWidget *widget = item->widget();  // 获取部件

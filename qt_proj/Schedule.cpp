@@ -19,7 +19,20 @@ QString & Schedule::GetTime() {
 QDate & Schedule::GetDate() {
     return Date;
 }
-
+bool Schedule::Compare1(const Schedule& a, const Schedule& b) {
+    // 比较 Time 数组中的元素
+    for (size_t i = 0; i < a.Time.size() && i < b.Time.size(); ++i) {
+        if (a.Time[i] != b.Time[i]) {
+            return a.Time[i] < b.Time[i];
+        }
+    }
+    return Schedule::Compare2(a,b);
+}
+bool Schedule::Compare2(const Schedule& a, const Schedule& b) {
+    if(a.Rating!=b.Rating)
+    return a.Rating<b.Rating;
+    return Schedule::Compare1(a,b);
+}
 bool Schedule::operator< (const Schedule & b) {
     if (Time.isEmpty()) return false;
     if (b.Time.isEmpty()) return true;

@@ -34,10 +34,10 @@ public:
         del_confirmButton->setGeometry(QRect(30, 100, 80, 18));
         del_concelButton = new QPushButton(Delete_Schedule);
         del_concelButton->setObjectName("del_concelButton");
-        del_concelButton->setGeometry(QRect(180, 100, 80, 18));
+        del_concelButton->setGeometry(QRect(190, 100, 80, 18));
         textBrowser = new QTextBrowser(Delete_Schedule);
         textBrowser->setObjectName("textBrowser");
-        textBrowser->setGeometry(QRect(70, 30, 161, 51));
+        textBrowser->setGeometry(QRect(30, 40, 241, 41));
 
         retranslateUi(Delete_Schedule);
 

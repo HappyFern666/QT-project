@@ -26,6 +26,9 @@ public:
     int & GetRating();
     bool operator< (const Schedule & b);
     bool operator== (const Schedule b) ;
+    static bool Compare1(const Schedule& a, const Schedule& b);
+    static bool Compare2(const Schedule& a, const Schedule& b);
+
 };
 
 #endif // SCHEDULE_H

@@ -1,5 +1,5 @@
 /********************************************************************************
-** Form generated from reading UI file 'Modify_Schedule.ui'
+** Form generated from reading UI file 'Modify_schedule.ui'
 **
 ** Created by: Qt User Interface Compiler version 6.7.0
 **
@@ -39,39 +39,40 @@ public:
     QRadioButton *radioButton;
     QRadioButton *radioButton_3;
     QLabel *label_4;
+    QRadioButton *DelayButton;
 
     void setupUi(QDialog *Modify_Schedule)
     {
         if (Modify_Schedule->objectName().isEmpty())
             Modify_Schedule->setObjectName("Modify_Schedule");
-        Modify_Schedule->resize(400, 300);
+        Modify_Schedule->resize(340, 482);
         label_2 = new QLabel(Modify_Schedule);
         label_2->setObjectName("label_2");
-        label_2->setGeometry(QRect(40, 180, 91, 16));
+        label_2->setGeometry(QRect(20, 160, 91, 16));
         lineEdit_3 = new QLineEdit(Modify_Schedule);
         lineEdit_3->setObjectName("lineEdit_3");
-        lineEdit_3->setGeometry(QRect(140, 130, 113, 23));
+        lineEdit_3->setGeometry(QRect(102, 120, 201, 23));
         label = new QLabel(Modify_Schedule);
         label->setObjectName("label");
-        label->setGeometry(QRect(40, 10, 71, 16));
+        label->setGeometry(QRect(20, 10, 71, 16));
         lineEdit = new QLineEdit(Modify_Schedule);
         lineEdit->setObjectName("lineEdit");
-        lineEdit->setGeometry(QRect(120, 10, 251, 23));
+        lineEdit->setGeometry(QRect(100, 10, 201, 23));
         label_3 = new QLabel(Modify_Schedule);
         label_3->setObjectName("label_3");
-        label_3->setGeometry(QRect(40, 130, 61, 16));
+        label_3->setGeometry(QRect(20, 120, 61, 16));
         lineEdit_4 = new QLineEdit(Modify_Schedule);
         lineEdit_4->setObjectName("lineEdit_4");
-        lineEdit_4->setGeometry(QRect(140, 230, 113, 23));
+        lineEdit_4->setGeometry(QRect(100, 200, 201, 171));
         confirmButton = new QPushButton(Modify_Schedule);
         confirmButton->setObjectName("confirmButton");
-        confirmButton->setGeometry(QRect(300, 260, 80, 24));
+        confirmButton->setGeometry(QRect(220, 440, 80, 24));
         lineEdit_2 = new QLineEdit(Modify_Schedule);
         lineEdit_2->setObjectName("lineEdit_2");
-        lineEdit_2->setGeometry(QRect(140, 180, 113, 23));
+        lineEdit_2->setGeometry(QRect(130, 160, 113, 23));
         groupBox = new QGroupBox(Modify_Schedule);
         groupBox->setObjectName("groupBox");
-        groupBox->setGeometry(QRect(39, 50, 331, 64));
+        groupBox->setGeometry(QRect(20, 40, 301, 61));
         horizontalLayout = new QHBoxLayout(groupBox);
         horizontalLayout->setObjectName("horizontalLayout");
         radioButton_4 = new QRadioButton(groupBox);
@@ -96,7 +97,10 @@ public:
 
         label_4 = new QLabel(Modify_Schedule);
         label_4->setObjectName("label_4");
-        label_4->setGeometry(QRect(40, 230, 54, 16));
+        label_4->setGeometry(QRect(20, 200, 54, 16));
+        DelayButton = new QRadioButton(Modify_Schedule);
+        DelayButton->setObjectName("DelayButton");
+        DelayButton->setGeometry(QRect(60, 400, 221, 22));
 
         retranslateUi(Modify_Schedule);
 
@@ -116,6 +120,7 @@ public:
         radioButton->setText(QCoreApplication::translate("Modify_Schedule", "Study", nullptr));
         radioButton_3->setText(QCoreApplication::translate("Modify_Schedule", "Else", nullptr));
         label_4->setText(QCoreApplication::translate("Modify_Schedule", "Notes:", nullptr));
+        DelayButton->setText(QCoreApplication::translate("Modify_Schedule", "Delay this schedule to tomorrow", nullptr));
     } // retranslateUi
 
 };

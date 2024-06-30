@@ -40,6 +40,11 @@ private slots:
     void on_CheckBox_statechanged(Schedule s, int state);
 
     void updateTimer();
+    void on_Sort_with_Time_clicked();
+    void on_Sort_with_Rating_clicked();
+
+
+
 
 private:
 
@@ -49,6 +54,8 @@ private:
     Add_Schedule *addScheduleWindow;
     Delete_Schedule *deleteScheduleWindow;
     Modify_Schedule *modifyScheduleWindow;
+
+
 
     QDate currentDate;
 
